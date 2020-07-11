@@ -22,6 +22,10 @@ func initialize():
 	Global.defend_button.add_to_group('btns')
 	Global.items_button.add_to_group('btns')
 	
+	Global.attack_button.add_to_group('btns')
+	Global.defend_button.add_to_group('btns')
+	Global.items_button.add_to_group('btns')
+	
 	var player_instance = player.instance()
 	player_instance.add_to_group('player')
 	var enemy_instance = enemy.instance()
@@ -40,3 +44,5 @@ func initialize():
 	$TurnQueue.add_child(player_instance)
 	$TurnQueue.add_child(enemy_instance)
 	$TurnQueue.initialize()
+
+
