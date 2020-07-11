@@ -17,7 +17,17 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Battler",
 "language": "GDScript",
-"path": "res://src/battler.gd"
+"path": "res://src/character/battler.gd"
+}, {
+"base": "Battler",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://src/character/enemy.gd"
+}, {
+"base": "Battler",
+"class": "MainCharacter",
+"language": "GDScript",
+"path": "res://src/character/main_character.gd"
 }, {
 "base": "Node2D",
 "class": "TurnQueue",
@@ -27,23 +37,49 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Action": "",
 "Battler": "",
+"Enemy": "",
+"MainCharacter": "",
 "TurnQueue": ""
 }
 
 [application]
 
 config/name="ProbTurnBased"
-run/main_scene="res://levels/main_menu/MainMenu.tscn"
+run/main_scene="res://src/combat/CombatScene.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Transition="*res://levels/scene_changer_experiment/Transition.tscn"
+Global="*res://src/autoload/global.gd"
 
 [display]
 
 window/size/width=1200
 window/size/height=800
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [rendering]
 

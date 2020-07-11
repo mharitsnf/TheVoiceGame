@@ -2,6 +2,5 @@
 
 [ext_resource path="res://src/turn_queue.gd" type="Script" id=1]
 
-
 [node name="TurnQueue" type="Node2D"]
 script = ExtResource( 1 )
