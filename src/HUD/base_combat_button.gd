@@ -1,4 +1,4 @@
 extends TextureButton
 
-func toggle_button():
-	disabled = !disabled
+func toggle_button(value):
+	disabled = value

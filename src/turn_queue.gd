@@ -1,7 +1,9 @@
 extends Node2D
 class_name TurnQueue
 
-var active_character : Battler
+signal end_combat
+
+var active_character: Battler
 var turn := 0
 
 func initialize():
@@ -17,8 +19,7 @@ func play_turn():
 		yield(Global.dialogue_box, "comment_done")
 		
 	if active_character.role == Battler.roles.PLAYER:
-		print(get_tree().get_nodes_in_group('btns'))
-		get_tree().call_group('btns', 'toggle_button')
+		get_tree().call_group('btns', 'toggle_button', false)
 		
 	yield(active_character.play_turn(), 'completed')
 	next_turn()

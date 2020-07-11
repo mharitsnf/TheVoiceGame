@@ -4,7 +4,7 @@
 [ext_resource path="res://src/HUD/dialogue_box.gd" type="Script" id=2]
 [ext_resource path="res://assets/DialogueBox.tres" type="DynamicFont" id=3]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "start"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/VBoxContainer/MarginContainer/RichTextLabel:percent_visible")
@@ -55,9 +55,9 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/VBoxContainer"]
-margin_top = 37.0
+margin_top = 49.0
 margin_right = 688.0
-margin_bottom = 137.0
+margin_bottom = 149.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -72,15 +72,5 @@ visible_characters = 0
 percent_visible = 0.0
 text = "BATTLE!"
 
-[node name="Label" type="Label" parent="Background/VBoxContainer"]
-margin_top = 141.0
-margin_right = 688.0
-margin_bottom = 163.0
-custom_fonts/font = ExtResource( 3 )
-text = "Press Enter to continue"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/start = SubResource( 3 )
+anims/start = SubResource( 1 )
