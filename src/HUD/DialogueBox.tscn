@@ -1,16 +1,38 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/dialogue_box.png" type="Texture" id=1]
+[ext_resource path="res://src/HUD/dialogue_box.gd" type="Script" id=2]
+[ext_resource path="res://assets/DialogueBox.tres" type="DynamicFont" id=3]
 
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://assets/font/VCR_OSD_MONO_1.001.ttf"
+[sub_resource type="Animation" id=3]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/MarginContainer/RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 
-[sub_resource type="DynamicFont" id=2]
-size = 24
-font_data = SubResource( 1 )
+[node name="DialogueBox" type="Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="DialogueBox" type="NinePatchRect"]
-margin_right = 1050.0
+[node name="Background" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -525.0
+margin_right = 525.0
 margin_bottom = 192.0
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 240, 160 )
@@ -22,7 +44,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -34,9 +56,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/MarginContainer"]
 margin_right = 952.0
 margin_bottom = 112.0
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = ExtResource( 3 )
 bbcode_text = "BATTLE!"
 text = "BATTLE!"
+
+[node name="Label" type="Label" parent="Background"]
+visible = false
+margin_left = 709.0
+margin_top = 152.0
+margin_right = 1031.0
+margin_bottom = 174.0
+custom_fonts/font = ExtResource( 3 )
+text = "Press Enter to continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/start = SubResource( 3 )

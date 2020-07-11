@@ -3,18 +3,23 @@ extends Node2D
 var player = preload("res://src/character/MainCharacter.tscn")
 var enemy = preload("res://src/character/Enemy.tscn")
 
+var dialogue_initial_text = ["Lorem ipsum dolor si anjing", 'si anjing cokelat pake susu krim dibekuin', 'FIGHT!!']
+
 func _ready():
-	Global.attack_button = $Control/VBoxContainer/HBoxContainer/Attack
-	Global.defend_button = $Control/VBoxContainer/HBoxContainer/Defend
-	Global.items_button = $Control/VBoxContainer/HBoxContainer/Items
+	Global.attack_button = $HUD/VBoxContainer/HBoxContainer/Attack
+	Global.defend_button = $HUD/VBoxContainer/HBoxContainer/Defend
+	Global.items_button = $HUD/VBoxContainer/HBoxContainer/Items
+	Global.dialogue_box = $HUD/VBoxContainer/DialogueBox
 	
 	var player_instance = player.instance()
+	var enemy_instance = enemy.instance()
 	
 	Global.attack_button.connect("button_up", player_instance, '_attack_button_up')
 	Global.defend_button.connect("button_up", player_instance, '_defend_button_up')
 	Global.items_button.connect("button_up", player_instance, '_items_button_up')
-	
-	var enemy_instance = enemy.instance()
+
+	Global.dialogue_box.show_comment(dialogue_initial_text, true)
+	yield(Global.dialogue_box, "comment_done")
 	
 	$TurnQueue.add_child(player_instance)
 	$TurnQueue.add_child(enemy_instance)
