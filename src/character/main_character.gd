@@ -16,15 +16,12 @@ func _combat_button_up(button_name):
 	
 	match button_name:
 		'Attack':
-			print('attack')
 			is_target_dead = false
 			current_action = 'attack'
 		'Defend':
-			print('defend')
 			is_target_dead = false
 			current_action = 'defend'
 		'Items':
-			print('items')
 			is_target_dead = false
 			current_action = 'heal'
 	
@@ -37,10 +34,12 @@ func play_turn():
 	yield(self, "process_completed")
 	
 	if is_target_dead:
-		parent.emit_signal("end_combat")
+		return true
 	else:
 		Global.dialogue_box.show_comment(['You %sed! Congratulations!' % current_action], false)
 		yield(Global.dialogue_box, "comment_done")
+		current_action = ''
+		is_target_dead = null
+		return false
 	
-	current_action = ''
-	is_target_dead = null
+	

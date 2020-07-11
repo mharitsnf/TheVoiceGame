@@ -1,8 +1,6 @@
 extends Node2D
 class_name TurnQueue
 
-signal end_combat
-
 var active_character: Battler
 var turn := 0
 
@@ -21,8 +19,13 @@ func play_turn():
 	if active_character.role == Battler.roles.PLAYER:
 		get_tree().call_group('btns', 'toggle_button', false)
 		
-	yield(active_character.play_turn(), 'completed')
-	next_turn()
+	var character_dead = yield(active_character.play_turn(), 'completed')
+	print('player is ded ' + str(character_dead))
+	
+	if character_dead:
+		print('sedap')
+	else:
+		next_turn()
 
 func next_turn():
 	var new_index : int = (active_character.get_index() + 1) % get_child_count()

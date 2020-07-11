@@ -33,7 +33,8 @@ func play_turn():
 			is_target_dead = heal()
 			
 	if is_target_dead:
-		parent.emit_signal("end_combat")
+		return true
 	else:
 		Global.dialogue_box.show_comment(['You receive %s damage!' % stats.damage], false)
 		yield(Global.dialogue_box, "comment_done")
+		return false
