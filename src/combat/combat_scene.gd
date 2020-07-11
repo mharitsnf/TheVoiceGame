@@ -11,6 +11,10 @@ func _ready():
 	Global.items_button = $HUD/VBoxContainer/HBoxContainer/Items
 	Global.dialogue_box = $HUD/VBoxContainer/DialogueBox
 	
+	Global.attack_button.add_to_group('btns')
+	Global.defend_button.add_to_group('btns')
+	Global.items_button.add_to_group('btns')
+	
 	var player_instance = player.instance()
 	var enemy_instance = enemy.instance()
 	
@@ -24,3 +28,5 @@ func _ready():
 	$TurnQueue.add_child(player_instance)
 	$TurnQueue.add_child(enemy_instance)
 	$TurnQueue.initialize()
+
+

@@ -12,7 +12,7 @@ script = ExtResource( 4 )
 [node name="TurnQueue" parent="." instance=ExtResource( 2 )]
 
 [node name="icon" type="Sprite" parent="."]
-position = Vector2( 576, 192 )
+position = Vector2( 608, 320 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 

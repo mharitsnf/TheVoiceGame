@@ -19,3 +19,4 @@ func play_turn():
 	yield(self, "button_selected")
 	Global.dialogue_box.show_comment(['You did something!'], false)
 	yield(Global.dialogue_box, "comment_done")
+	get_tree().call_group('btns', 'toggle_button')
