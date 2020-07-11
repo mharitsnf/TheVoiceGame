@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/HUD/DialogueBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/TurnQueue.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://src/combat/combat_scene.gd" type="Script" id=4]
 [ext_resource path="res://src/HUD/BaseButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/attack_btn.png" type="Texture" id=6]
+[ext_resource path="res://assets/heal_btn.png" type="Texture" id=7]
+[ext_resource path="res://assets/defend_btn.png" type="Texture" id=8]
+[ext_resource path="res://assets/heal_btn_focus.png" type="Texture" id=9]
+[ext_resource path="res://assets/defend_btn_focus.png" type="Texture" id=10]
+[ext_resource path="res://assets/attack_btn_focus.png" type="Texture" id=11]
+[ext_resource path="res://assets/health_bar.png" type="Texture" id=12]
 
 [node name="CombatScene" type="Node2D"]
 script = ExtResource( 4 )
@@ -24,39 +31,58 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -560.0
-margin_right = 560.0
-margin_bottom = 224.0
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 12
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
-margin_right = 1120.0
-margin_bottom = 20.0
+[node name="DialogueBox" parent="HUD/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 86.0
+margin_right = 886.0
+margin_bottom = 224.0
+rect_min_size = Vector2( 800, 200 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HBoxContainer"]
+margin_left = 898.0
+margin_right = 1114.0
+margin_bottom = 224.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 216.0
+margin_bottom = 124.0
+texture = ExtResource( 12 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HBoxContainer/VBoxContainer"]
+margin_top = 144.0
+margin_right = 216.0
+margin_bottom = 224.0
+custom_constants/separation = 10
 alignment = 1
 
-[node name="Attack" parent="HUD/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
-margin_left = 461.0
-margin_right = 527.0
+[node name="Attack" parent="HUD/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 8.0
+margin_right = 68.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 11 )
 
-[node name="Defend" parent="HUD/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
-margin_left = 531.0
-margin_right = 597.0
-text = "Defend"
+[node name="Defend" parent="HUD/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 78.0
+margin_right = 138.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 10 )
 
-[node name="Items" parent="HUD/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
-margin_left = 601.0
-margin_right = 658.0
-text = "Items"
-
-[node name="DialogueBox" parent="HUD/VBoxContainer" instance=ExtResource( 1 )]
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 24.0
-margin_right = 1120.0
-margin_bottom = 24.0
+[node name="Items" parent="HUD/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 148.0
+margin_right = 208.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 9 )

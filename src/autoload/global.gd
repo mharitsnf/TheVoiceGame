@@ -1,7 +1,7 @@
 extends Node
 
-var attack_button : Button
-var defend_button : Button
-var items_button : Button
+var attack_button : TextureButton
+var defend_button : TextureButton
+var items_button : TextureButton
 
 var dialogue_box : Control

@@ -6,10 +6,10 @@ var enemy = preload("res://src/character/Enemy.tscn")
 var dialogue_initial_text = ["Lorem ipsum dolor si anjing", 'si anjing cokelat pake susu krim dibekuin', 'FIGHT!!']
 
 func _ready():
-	Global.attack_button = $HUD/VBoxContainer/HBoxContainer/Attack
-	Global.defend_button = $HUD/VBoxContainer/HBoxContainer/Defend
-	Global.items_button = $HUD/VBoxContainer/HBoxContainer/Items
-	Global.dialogue_box = $HUD/VBoxContainer/DialogueBox
+	Global.attack_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Attack
+	Global.defend_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Defend
+	Global.items_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Items
+	Global.dialogue_box = $HUD/HBoxContainer/DialogueBox
 	
 	Global.attack_button.add_to_group('btns')
 	Global.defend_button.add_to_group('btns')
