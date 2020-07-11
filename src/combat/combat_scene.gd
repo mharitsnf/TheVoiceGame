@@ -30,8 +30,11 @@ func initialize():
 	player_instance.add_to_group('player')
 	var enemy_instance = enemy.instance()
 	enemy_instance.add_to_group('enemy')
+<<<<<<< HEAD
 	
 	Global.health_bar.initialize(player_instance.stats.max_health, player_instance.stats.current_health)
+=======
+>>>>>>> 90b5153... Refactor and add sound
 	
 	# warning-ignore
 	Global.attack_button.connect("button_up", player_instance, '_combat_button_up', [Global.attack_button.name])
@@ -44,5 +47,3 @@ func initialize():
 	$TurnQueue.add_child(player_instance)
 	$TurnQueue.add_child(enemy_instance)
 	$TurnQueue.initialize()
-
-
