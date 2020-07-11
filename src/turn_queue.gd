@@ -1,11 +1,9 @@
 extends Node2D
 class_name TurnQueue
 
-<<<<<<< HEAD
-=======
+
 signal end_combat
 
->>>>>>> 90b5153... Refactor and add sound
 var active_character: Battler
 var turn := 0
 

@@ -16,24 +16,19 @@ func _combat_button_up(button_name):
 	
 	match button_name:
 		'Attack':
-<<<<<<< HEAD
 			is_target_dead = false
 			current_action = 'attack'
 		'Defend':
 			is_target_dead = false
 			current_action = 'defend'
 		'Items':
-=======
 			print('attack')
 			is_target_dead = false
 			current_action = 'attack'
 		'Defend':
-			print('defend')
 			is_target_dead = false
 			current_action = 'defend'
 		'Items':
-			print('items')
->>>>>>> 90b5153... Refactor and add sound
 			is_target_dead = false
 			current_action = 'heal'
 	
@@ -46,7 +41,6 @@ func play_turn():
 	yield(self, "process_completed")
 	
 	if is_target_dead:
-<<<<<<< HEAD
 		return true
 	else:
 		Global.dialogue_box.show_comment(['You %sed! Congratulations!' % current_action], false)
@@ -54,14 +48,3 @@ func play_turn():
 		current_action = ''
 		is_target_dead = null
 		return false
-	
-	
-=======
-		parent.emit_signal("end_combat")
-	else:
-		Global.dialogue_box.show_comment(['You %sed! Congratulations!' % current_action], false)
-		yield(Global.dialogue_box, "comment_done")
-	
-	current_action = ''
-	is_target_dead = null
->>>>>>> 90b5153... Refactor and add sound
