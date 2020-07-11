@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "Battler",
+"language": "GDScript",
+"path": "res://src/battler.gd"
+}, {
+"base": "Node2D",
+"class": "TurnQueue",
+"language": "GDScript",
+"path": "res://src/turn_queue.gd"
+} ]
 _global_script_class_icons={
-
+"Battler": "",
+"TurnQueue": ""
 }
 
 [application]
