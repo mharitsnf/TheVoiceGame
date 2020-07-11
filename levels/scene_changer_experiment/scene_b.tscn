@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://levels/scene_changer_experiment/scene_b.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 246.945
+margin_top = 86.7646
+margin_right = 348.131
+margin_bottom = 100.765
+rect_scale = Vector2( 3.023, 5.762 )
+text = "THIS IS SCENE B"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 62.7375
+margin_top = 299.004
+margin_right = 338.737
+margin_bottom = 451.004
+rect_scale = Vector2( 1.001, 1 )
+text = "TO A"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Button" to="Button" method="_on_Button_button_up"]
