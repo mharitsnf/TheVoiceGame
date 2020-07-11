@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "Action",
+"language": "GDScript",
+"path": "res://src/actions/action.gd"
+}, {
+"base": "Node",
 "class": "Battler",
 "language": "GDScript",
 "path": "res://src/battler.gd"
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://src/turn_queue.gd"
 } ]
 _global_script_class_icons={
+"Action": "",
 "Battler": "",
 "TurnQueue": ""
 }
