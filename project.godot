@@ -16,7 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="ProbTurnBased"
+run/main_scene="res://levels/scene_changer_experiment/scene_a.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Transition="*res://levels/scene_changer_experiment/Transition.tscn"
+
+[display]
+
+window/size/width=800
 
 [rendering]
 
