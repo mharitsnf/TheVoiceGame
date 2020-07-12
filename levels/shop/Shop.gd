@@ -65,6 +65,7 @@ func show_dialog():
 		
 	print('done')
 		
+
 func _on_Button_pressed():
 	card_check(arr_choices[0], 1)
 	emit_signal("step_done")
@@ -176,3 +177,4 @@ func disable_buttons():
 	
 func enable_buttons():
 	get_tree().call_group('cards', 'set_disabled', false)
+
