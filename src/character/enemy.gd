@@ -17,7 +17,7 @@ func attack():
 		action_result.enemy_dead = damage_result[0]
 		action_result.info['damage_dealt'] = damage_result[2]
 		
-		Global.health_bar.update_health_bar(damage_result[1])
+		Global.health_bar.update_health_bar(damage_result[1], 'damage')
 		Global.combat_hud.receive_damage()
 	else:
 		action_result.enemy_dead = false

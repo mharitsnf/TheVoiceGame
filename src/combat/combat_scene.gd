@@ -24,7 +24,7 @@ func _ready():
 	start()
 
 func start():
-#	$AudioStreamPlayer.play()
+	$AudioStreamPlayer.play()
 	Global.attack_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Attack
 	Global.defend_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Defend
 	Global.items_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Items

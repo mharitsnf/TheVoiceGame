@@ -19,7 +19,7 @@ func _combat_button_up(button_name):
 	match button_name:
 		'Attack':
 			action_result.action = 'attack'
-			if Calculation.calculate_probability(0.8):
+			if Calculation.calculate_probability(stats.affinity):
 				current_action = 'attack'
 				action_result.success = true
 			else:
@@ -27,7 +27,7 @@ func _combat_button_up(button_name):
 				
 		'Defend':
 			action_result.action = 'defend'
-			if Calculation.calculate_probability(0.8):
+			if Calculation.calculate_probability(stats.affinity):
 				current_action = 'defense'
 				action_result.success = true
 			else:
@@ -35,7 +35,7 @@ func _combat_button_up(button_name):
 				
 		'Items':
 			action_result.action = 'heal'
-			if Calculation.calculate_probability(0.8):
+			if Calculation.calculate_probability(stats.affinity):
 				current_action = 'heal'
 				action_result.success = true
 			else:
@@ -52,7 +52,7 @@ func process_action():
 				action_result.enemy_dead = attack_result[0]
 				action_result.info['damage_dealt'] = attack_result[2]
 				
-				Global.enemy_health_bar.update_health_bar(attack_result[1])
+				Global.enemy_health_bar.update_health_bar(attack_result[1], 'damage')
 				Global.enemy_sprite.receive_damage()
 				
 			else:
@@ -67,6 +67,9 @@ func process_action():
 			
 		'heal':
 			if action_result.success:
+				var amount = stats.max_health * 0.25
+				stats.heal(amount)
+				Global.health_bar.update_health_bar(stats.current_health, 'heal')
 				action_result.enemy_dead = false
 			else:
 				action_result.enemy_dead = false
@@ -161,7 +164,7 @@ func show_result_dialogue():
 		'heal':
 			if action_result.success:
 				Global.dialogue_box.show_comment(
-					[{"name": "Narrator", "text": 'Bob healed!'}], 
+					[{"name": "Narrator", "text": 'Bob healed for %s!' % (stats.max_health * 0.25)}], 
 					false
 				)
 			else:

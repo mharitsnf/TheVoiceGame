@@ -17,11 +17,12 @@ func enhance_defense():
 	
 func revert_defense():
 	self.defense /= 20
-	
-func enhance_stats(stat, value):
-	match stat:
-		'defense': defense += value
-		'damage': damage += value
+
+func heal(value):
+	current_health += value
+	if current_health > max_health:
+		current_health = max_health
+	return current_health
 		
 func get_stats():
 	return {
