@@ -58,17 +58,8 @@ script = ExtResource( 4 )
 [node name="TextureRect" type="AnimatedSprite" parent="TurnQueue"]
 position = Vector2( 597.537, 400.477 )
 frames = SubResource( 9 )
-frame = 1
+frame = 5
 playing = true
-
-[node name="Lost" type="AudioStreamPlayer" parent="TurnQueue"]
-stream = ExtResource( 6 )
-
-[node name="Win" type="AudioStreamPlayer" parent="TurnQueue"]
-stream = ExtResource( 8 )
-
-[node name="Victory" type="AudioStreamPlayer" parent="TurnQueue"]
-stream = ExtResource( 7 )
 
 [node name="HUD" parent="." instance=ExtResource( 1 )]
 
@@ -81,3 +72,12 @@ margin_left = 148.497
 margin_top = 45.1893
 margin_right = 148.497
 margin_bottom = 45.1893
+
+[node name="Lost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Win" type="AudioStreamPlayer" parent="Lost"]
+stream = ExtResource( 8 )
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
