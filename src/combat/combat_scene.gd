@@ -10,7 +10,7 @@ func _ready():
 	initialize()
 
 func initialize():
-#	$AudioStreamPlayer.play()
+	$AudioStreamPlayer.play()
 	Global.attack_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Attack
 	Global.defend_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Defend
 	Global.items_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Items
@@ -30,11 +30,8 @@ func initialize():
 	player_instance.add_to_group('player')
 	var enemy_instance = enemy.instance()
 	enemy_instance.add_to_group('enemy')
-<<<<<<< HEAD
 	
 	Global.health_bar.initialize(player_instance.stats.max_health, player_instance.stats.current_health)
-=======
->>>>>>> 90b5153... Refactor and add sound
 	
 	Global.health_bar.initialize(player_instance.stats.max_health, player_instance.stats.current_health)
 	
