@@ -9,4 +9,3 @@ current_health = 60
 defense = 30
 damage = 40
 affinity = 0.5
-potion_count = 1

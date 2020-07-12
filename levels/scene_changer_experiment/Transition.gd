@@ -13,3 +13,4 @@ func fade_to(scn_path):
 func change_scene():
 	if path != "":
 		get_tree().change_scene(path)
+	pass

@@ -9,6 +9,7 @@ var turn := 0
 
 onready var parent = get_parent()
 onready var win_dialogue = Global.parse_json_file("res://assets/texts/win_dialogues.json")
+var game_state = load("res://src/game state/GameState.tres")
 
 var turn_state
 
@@ -66,11 +67,24 @@ func combat_finished():
 		Global.dialogue_box.show_comment([{"name": "Voice", "text": "Haha nooob!!"}], true)
 		yield(Global.dialogue_box, "comment_done")
 	else:
-		$Win.play();
+		var outro
+		if (game_state.enemies_won < 3):
+			$Win.play()
+			if (game_state.enemies_won == 1):
+				outro = Global.parse_json_file("res://assets/texts/outroChicking.json")
+			else:
+				outro = Global.parse_json_file("res://assets/texts/outroRoy.json")
+		else:
+			$Victory.play()
+			outro = Global.parse_json_file("res://assets/texts/outroDovic.json")
+
 		Global.dialogue_box.show_comment(
 			win_dialogue[randi()%win_dialogue.size()], 
 			true
 		)
+		yield(Global.dialogue_box, "comment_done")
+		
+		Global.dialogue_box.show_comment(outro, true)
 		yield(Global.dialogue_box, "comment_done")
 		
 	parent.clear_globals()
