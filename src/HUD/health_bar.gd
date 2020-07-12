@@ -10,3 +10,5 @@ func update_health_bar(new_health, type):
 	health_bar.value = new_health
 	if type == 'damage':
 		$Hurt.play()
+	else:
+		$Heal.play()
