@@ -5,30 +5,18 @@ var player = preload("res://src/character/MainCharacter.tscn").instance()
 var sprite_position = Vector2(544, 352)
 var enemy
 
-onready var dialogue_initial_text = Global.parse_json_file("res://assets/texts/experiment.json")
+var initial_dialogue
 
 func _ready():
-	var sprite
-	match SceneSwitcher.get_param('enemy_no'):
-		1:
-			enemy = load("res://src/character/Enemy.tscn").instance()
-			sprite = load("res://src/character/sprites/Chiking.tscn").instance()
-			sprite.get_node('AnimationPlayer').play('idle')
-			sprite.position = sprite_position
-			add_child(sprite)
-		2:
-			enemy = load("res://src/character/Enemy2.tscn").instance()
-			sprite = load("res://src/character/sprites/Human.tscn").instance()
-			sprite.get_node('AnimationPlayer').play('idle')
-			sprite.position = sprite_position
-			add_child(sprite)
-		3:
-			enemy = load("res://src/character/Enemy3.tscn").instance()
-			sprite = load("res://src/character/sprites/Pramexas.tscn").instance()
-			sprite.get_node('AnimationPlayer').play('idle')
-			sprite.position = sprite_position
-			add_child(sprite)
-			
+	enemy = load(SceneSwitcher.get_param('enemy_scene')).instance()
+	
+	var sprite = load(SceneSwitcher.get_param('sprite_scene')).instance()
+	sprite.get_node('AnimationPlayer').play('idle')
+	sprite.position = sprite_position
+	add_child(sprite)
+	
+	initial_dialogue = Global.parse_json_file(SceneSwitcher.get_param('intro_script_path'))
+	
 	Global.player_node = player
 	Global.enemy_node = enemy
 	Global.enemy_sprite = sprite
@@ -36,26 +24,28 @@ func _ready():
 	start()
 
 func start():
-	$AudioStreamPlayer.play()
+#	$AudioStreamPlayer.play()
 	Global.attack_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Attack
 	Global.defend_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Defend
 	Global.items_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Items
 	Global.dialogue_box = $HUD/HBoxContainer/DialogueBox
 	Global.health_bar = $HUD/HBoxContainer/VBoxContainer/HealthBar
 	Global.combat_hud = $HUD
+	Global.enemy_health_bar = $EnemyHealthBar.get_node("HBoxContainer/HealthBar")
 	
 	Global.attack_button.add_to_group('btns')
 	Global.defend_button.add_to_group('btns')
 	Global.items_button.add_to_group('btns')
 	
 	Global.health_bar.initialize(player.stats.max_health, player.stats.current_health)
+	Global.enemy_health_bar.initialize(enemy.stats.max_health, enemy.stats.current_health)
 	
 	# warning-ignore
 	Global.attack_button.connect("button_up", player, '_combat_button_up', [Global.attack_button.name])
 	Global.defend_button.connect("button_up", player, '_combat_button_up', [Global.defend_button.name])
 	Global.items_button.connect("button_up", player, '_combat_button_up', [Global.items_button.name])
 
-	Global.dialogue_box.show_comment(dialogue_initial_text, true)
+	Global.dialogue_box.show_comment(initial_dialogue, true)
 	yield(Global.dialogue_box, "comment_done")
 	
 	$TurnQueue.add_child(player)

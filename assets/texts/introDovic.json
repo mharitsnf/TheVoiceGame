@@ -1,0 +1,13 @@
+[
+    {"name": "Bob", "text": "Who's the boss?"},
+    {"name": "Voice", "text": "Wait a minute, it said...uuuhhh...Dovic?"},
+    {"name": "Bob", "text": "Who?"},
+    {"name": "Voice", "text": "Don't ask me, I don't know either"},
+    {"name": "Bob", "text": "And I thought you are all-knowing..."},
+    {"name": "Voice", "text": "Well, I'm just a voice, okay?"},
+    {"name": "Bob", "text": "All right, all right"},
+    {"name": "Dovic", "text": "Welcome, challenger"},
+    {"name": "Bob", "text": "Hi, you seems familiar. Did you went to the supermarket near the townhall a week ago?"},
+    {"name": "Dovic", "text": "I'm afraid you're mistaken but a lot of people said it to me earlier"},
+    {"name": "Bob", "text": "Ah okay, that's all right. Fight?"}
+]

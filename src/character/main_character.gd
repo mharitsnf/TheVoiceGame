@@ -16,25 +16,27 @@ func _ready():
 	enemy = Global.enemy_node
 	
 func _combat_button_up(button_name):
-	print(button_name)
 	match button_name:
 		'Attack':
 			action_result.action = 'attack'
-			if [0, 2, 4, 6, 8].has(randi()%10+1):
+			if Calculation.calculate_probability(0.8):
+				current_action = 'attack'
 				action_result.success = true
 			else:
 				action_result.success = false
 				
 		'Defend':
 			action_result.action = 'defend'
-			if randi()%1+1 == 0:
+			if Calculation.calculate_probability(0.8):
+				current_action = 'defense'
 				action_result.success = true
 			else:
 				action_result.success = false
 				
 		'Items':
-			action_result.action = 'items'
-			if randi()%1+1 == 0:
+			action_result.action = 'heal'
+			if Calculation.calculate_probability(0.8):
+				current_action = 'heal'
 				action_result.success = true
 			else:
 				action_result.success = false
@@ -50,12 +52,15 @@ func process_action():
 				action_result.enemy_dead = attack_result[0]
 				action_result.info['damage_dealt'] = attack_result[2]
 				
+				Global.enemy_health_bar.update_health_bar(attack_result[1])
 				Global.enemy_sprite.receive_damage()
+				
 			else:
 				action_result.enemy_dead = false
 			
 		'defend':
 			if action_result.success:
+				stats.enhance_defense()
 				action_result.enemy_dead = false
 			else:
 				action_result.enemy_dead = false
@@ -144,7 +149,7 @@ func show_result_dialogue():
 		'defend':
 			if action_result.success:
 				Global.dialogue_box.show_comment(
-					[{"name": "Narrator", "text": 'Bob defended!'}], 
+					[{"name": "Narrator", "text": 'Bob defended! His defense doubled!'}], 
 					false
 				)
 			else:
@@ -156,7 +161,7 @@ func show_result_dialogue():
 		'heal':
 			if action_result.success:
 				Global.dialogue_box.show_comment(
-					[{"name": "Narrator", "text": 'Bob healed'}], 
+					[{"name": "Narrator", "text": 'Bob healed!'}], 
 					false
 				)
 			else:
@@ -168,6 +173,11 @@ func show_result_dialogue():
 	yield(Global.dialogue_box, "comment_done")
 
 func play_turn():
+	print(stats.get_stats())
+	if current_action == 'defense':
+		stats.revert_defense()
+		current_action = ''
+	
 	# Wait for button selection
 	yield(self, "button_selected")
 	get_tree().call_group('btns', 'toggle_button', true)

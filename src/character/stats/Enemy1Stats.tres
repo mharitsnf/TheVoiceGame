@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-max_health = 15
-current_health = 15
-defense = 3
-damage = 1
+max_health = 40
+current_health = 40
+defense = 20
+damage = 20
