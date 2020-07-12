@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/win_battle.wav-544f9ee289ce74e0b6d04d502e92bdf7.sample"
+
+[deps]
+
+source_file="res://assets/sfx/win_battle.wav"
+dest_files=[ "res://.import/win_battle.wav-544f9ee289ce74e0b6d04d502e92bdf7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
