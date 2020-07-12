@@ -10,12 +10,13 @@ var role
 enum actions {
 	ATTACK
 	DEFEND
-	ITEMS
+	HEAL
 }
 
 export var stats : Resource
 
 onready var parent = get_parent()
+var current_action = -1
 
 var action_result = {
 	'action': '',
@@ -33,4 +34,10 @@ func reset_action_result():
 		'success': true,
 		'enemy_dead': false,
 		'info': {}
+	}
+	
+func create_turn_state(enemy_dead, defense_up):
+	return {
+		'enemy_dead': enemy_dead,
+		'defense_up': defense_up
 	}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/HUD/combat_hud.gd" type="Script" id=1]
 [ext_resource path="res://src/HUD/DialogueBox.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/defend_btn.png" type="Texture" id=12]
 [ext_resource path="res://assets/attack_btn_focus.png" type="Texture" id=13]
 [ext_resource path="res://assets/heal_btn.png" type="Texture" id=14]
+[ext_resource path="res://assets/def_up.png" type="Texture" id=15]
 
 [node name="HUD" type="Control"]
 margin_top = 544.0
@@ -27,24 +28,31 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/separation = 12
+custom_constants/separation = 22
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DialogueBox" parent="HBoxContainer" instance=ExtResource( 2 )]
-margin_left = 86.0
-margin_right = 886.0
+margin_left = 81.0
+margin_right = 881.0
 margin_bottom = 224.0
 rect_min_size = Vector2( 800, 200 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 898.0
-margin_right = 1114.0
+margin_left = 903.0
+margin_right = 1119.0
 margin_bottom = 224.0
 custom_constants/separation = 11
 alignment = 2
+
+[node name="DefSign" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 19.0
+margin_right = 216.0
+margin_bottom = 47.0
+texture = ExtResource( 15 )
 
 [node name="HealthBarText" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
 margin_top = 58.0

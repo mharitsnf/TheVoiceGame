@@ -2,7 +2,6 @@ extends Battler
 class_name Enemy
 
 var target : Battler
-var current_action
 
 func _ready():
 	assert(stats != null)
@@ -10,11 +9,11 @@ func _ready():
 	target = Global.player_node
 	
 func attack():
-	action_result.action = 'attack'
+	action_result.action = actions.ATTACK
 	action_result.success = true
 	
 	if action_result.success:
-		current_action = 'attack'
+		current_action = actions.ATTACK
 		var damage_result = target.stats.receive_damage(stats.damage)
 		action_result.enemy_dead = damage_result[0]
 		action_result.info['damage_dealt'] = damage_result[2]
@@ -25,11 +24,11 @@ func attack():
 		action_result.enemy_dead = false
 	
 func defend():
-	action_result.action = 'defend'
+	action_result.action = actions.DEFEND
 	action_result.success = true
 	
 	if action_result.success:
-		current_action = 'defend'
+		current_action = actions.DEFEND
 		stats.enhance_defense()
 		action_result.enemy_dead = false
 	else:
@@ -37,24 +36,22 @@ func defend():
 	
 func heal():
 	if action_result.success:
-		current_action = 'heal'
+		current_action = actions.HEAL
 		stats.heal(stats.max_health * 0.25)
 		Global.enemy_health_bar.update_health_bar(stats.current_health, 'heal')
 		action_result.enemy_dead = false
 	else:
 		action_result.enemy_dead = false
 
-func decide_action():
-	return actions.ATTACK
-
 func play_turn():
-	if current_action == 'defend':
+	if current_action == actions.DEFEND:
 		stats.revert_defense()
-	current_action = ''
+		
+	current_action = -1
 	
 	yield(get_tree().create_timer(2), "timeout")
 	
-	match Calculation.calculate_probability_battle(0.4, 0.4, 0.2):
+	match Calculation.calculate_probability_battle(stats.attack_prob, stats.defend_prob, stats.items_prob):
 		actions.ATTACK:
 			attack()
 			if action_result.success:
@@ -92,7 +89,7 @@ func play_turn():
 					false
 				)
 				
-		actions.ITEMS:
+		actions.HEAL:
 			heal()
 			if action_result.success:
 				Global.dialogue_box.show_comment(
@@ -116,7 +113,7 @@ func play_turn():
 	
 	if action_result.enemy_dead:
 		reset_action_result()
-		return true
+		return create_turn_state(true, current_action == actions.DEFEND)
 	else:
 		reset_action_result()
-		return false
+		return create_turn_state(false, current_action == actions.DEFEND)
