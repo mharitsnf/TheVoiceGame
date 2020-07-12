@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://levels/scene_changer_experiment/Transition.gd" type="Script" id=1]
-[ext_resource path="res://assets/image.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/white.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "modulate"
-length = 2.0
+length = 5.0
 step = 0.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -14,7 +14,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.75 ),
+"times": PoolRealArray( 1.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -28,10 +28,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.99, 1.89 ),
+"times": PoolRealArray( 0, 1.5, 4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:layer")
@@ -40,23 +40,36 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.01, 1.84 ),
+"times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 2, -1 ]
+"values": [ 5, -1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.01, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
-layer = -2
+layer = -1
 script = ExtResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0.030303 )
+modulate = Color( 0, 0, 0, 0 )
+self_modulate = Color( 0, 0, 0, 1 )
 light_mask = 7
-margin_right = 1280.0
-margin_bottom = 853.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 2 )
-stretch_mode = 5
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

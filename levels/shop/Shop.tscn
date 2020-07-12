@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://levels/shop/Shop.gd" type="Script" id=1]
 [ext_resource path="res://assets/bg_shop.png" type="Texture" id=2]
@@ -7,33 +7,33 @@
 [ext_resource path="res://assets/dialogue_box.png" type="Texture" id=5]
 [ext_resource path="res://assets/candle.png" type="Texture" id=6]
 [ext_resource path="res://assets/card_question_mark_hover.png" type="Texture" id=7]
+[ext_resource path="res://assets/sfx/shop.wav" type="AudioStream" id=8]
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 320, 320 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 6 )
 region = Rect2( 320, 0, 320, 320 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 6 )
 region = Rect2( 640, 0, 320, 320 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 6 )
 region = Rect2( 960, 0, 320, 320 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=1]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=6]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Button1:modulate")
@@ -48,8 +48,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=7]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Button2:modulate")
@@ -64,8 +63,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=8]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Button3:modulate")
@@ -80,8 +78,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=9]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Button4:modulate")
@@ -96,8 +93,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=10]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Button5:modulate")
@@ -112,8 +108,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=11]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Button6:modulate")
@@ -306,34 +301,37 @@ __meta__ = {
 
 [node name="Candle" type="AnimatedSprite" parent="."]
 position = Vector2( 160, 160 )
-frames = SubResource( 11 )
-frame = 2
+frames = SubResource( 5 )
 playing = true
 
 [node name="Candle2" type="AnimatedSprite" parent="."]
 position = Vector2( 1040, 160 )
-frames = SubResource( 11 )
-frame = 1
+frames = SubResource( 5 )
+frame = 3
 playing = true
 flip_h = true
 
 [node name="AnimationPlayer1" type="AnimationPlayer" parent="."]
-anims/fade_out = SubResource( 1 )
+anims/fade_out = SubResource( 6 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/fade_out = SubResource( 2 )
+anims/fade_out = SubResource( 7 )
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
-anims/fade_out = SubResource( 3 )
+anims/fade_out = SubResource( 8 )
 
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="."]
-anims/fade_out = SubResource( 4 )
+anims/fade_out = SubResource( 9 )
 
 [node name="AnimationPlayer5" type="AnimationPlayer" parent="."]
-anims/fade_out = SubResource( 5 )
+anims/fade_out = SubResource( 10 )
 
 [node name="AnimationPlayer6" type="AnimationPlayer" parent="."]
-anims/fade_out = SubResource( 6 )
+anims/fade_out = SubResource( 11 )
+
+[node name="Score" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
 [connection signal="pressed" from="Button1" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]

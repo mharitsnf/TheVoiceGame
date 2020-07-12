@@ -2,6 +2,11 @@ extends Node2D
 
 var arr_choices = [0, 1, 2, 3, 4, 5]
 
+onready var shop_dialogues = Global.parse_json_file("res://assets/texts/shop.json")
+var prompt = shop_dialogues.buy.prompt
+var failed = shop_dialogues.buy.failed
+var success = shop_dialogues.buy.success
+
 func _ready():
 	randomize()
 	arr_choices.shuffle()
