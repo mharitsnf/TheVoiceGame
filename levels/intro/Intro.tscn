@@ -53,6 +53,7 @@ script = ExtResource( 2 )
 position = Vector2( -1.72955, -3.67352 )
 scale = Vector2( 5.1, 5.1 )
 frames = SubResource( 9 )
+frame = 4
 playing = true
 __meta__ = {
 "_editor_description_": ""
@@ -69,5 +70,4 @@ margin_bottom = -155.0
 [node name="Score" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 4 )
-volume_db = -25.0
 autoplay = true

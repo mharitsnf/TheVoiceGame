@@ -18,7 +18,6 @@ var player_defense_up = false
 var enemy_defense_up = false
 
 func initialize():
-	print(game_state)
 	active_character = get_child(0)
 	play_turn()
 
@@ -78,17 +77,39 @@ func combat_finished():
 		Transition.fade_to("res://src/others/LoseScene.tscn")
 		
 	else:
-		parent.get_node("Win").play();
+		game_state.current_attempt = 0
+		game_state.enemies_won += 1
+		
+		if (game_state.enemies_won == 3):
+			parent.get_node("Victory").play();	
+		else:
+			parent.get_node("Win").play();
+
 		Global.dialogue_box.show_comment(
 			win_dialogue[randi()%win_dialogue.size()], 
 			true
 		)
 		yield(Global.dialogue_box, "comment_done")
-		game_state.current_attempt = 0
-		game_state.enemies_won += 1
+		
+		
+		
+		var outro = Global.parse_json_file(get_outro_dialog(game_state.enemies_won))
+
+		Global.dialogue_box.show_comment(outro, true)
+		yield(Global.dialogue_box, "comment_done")
+		
 		parent.clear_globals()
 	
 		if game_state.enemies_won == 3:
 			Transition.fade_to("res://src/others/EndScene.tscn")
 		else:
 			Transition.fade_to("res://levels/shop/Shop.tscn")
+
+func get_outro_dialog(win_count:int):
+	match win_count:
+		1:
+			return "res://assets/texts/outroChicking.json"
+		2:
+			return "res://assets/texts/outroRoy.json"
+		3:
+			return "res://assets/texts/outroDovic.json"
