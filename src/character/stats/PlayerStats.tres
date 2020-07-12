@@ -1,10 +1,11 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://src/character/battler_stats.gd" type="Script" id=1]
+[ext_resource path="res://src/character/stats/player_stats.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
-max_health = 30
-current_health = 30
-defense = 5
-damage = 5
+max_health = 120
+current_health = 120
+defense = 30
+damage = 40
+affinity = 0.5

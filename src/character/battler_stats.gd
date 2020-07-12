@@ -11,3 +11,23 @@ func receive_damage(received_damage):
 	current_health -= damage_dealt
 	var is_dead = false if current_health > 0 else true
 	return [is_dead, current_health, damage_dealt]
+
+func enhance_defense():
+	self.defense *= 20
+	
+func revert_defense():
+	self.defense /= 20
+
+func heal(value):
+	current_health += value
+	if current_health > max_health:
+		current_health = max_health
+	return current_health
+		
+func get_stats():
+	return {
+		'max_health': max_health,
+		'current_health': current_health,
+		'defense': defense,
+		'damage': damage
+	}

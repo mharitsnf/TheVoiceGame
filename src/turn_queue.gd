@@ -22,7 +22,7 @@ func play_turn():
 		Global.dialogue_box.show_comment([{"name": "Voice", "text": "Okay let's wait..."}], true)
 		yield(Global.dialogue_box, "comment_done")
 		
-	print('sed')
+	print(active_character.stats.get_stats())
 	if active_character.role == Battler.roles.PLAYER:
 		get_tree().call_group('btns', 'toggle_button', false)
 		

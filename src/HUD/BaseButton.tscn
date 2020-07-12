@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/HUD/base_combat_button.gd" type="Script" id=1]
+[ext_resource path="res://assets/sfx/buttonSelect2.wav" type="AudioStream" id=2]
 
 [node name="BaseCombatButton" type="TextureButton"]
 margin_right = 40.0
@@ -10,3 +11,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -22.0
+[connection signal="button_up" from="." to="." method="_on_BaseCombatButton_button_up"]

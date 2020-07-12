@@ -13,6 +13,8 @@ var dialogue_box : Control
 var health_bar : Control
 var combat_hud : Control
 
+var enemy_health_bar : Control
+
 func parse_json_file(path):
 	var file = File.new()
 	file.open(path, file.READ)
