@@ -1,0 +1,46 @@
+{
+  "buy":{
+    "prompt":[
+      {
+        "name":"Bob",
+        "text":"Our weapon seems a lil bit rusty"
+      },
+      {
+        "name":"Bob",
+        "text":"Let's upgrade our armor"
+      },
+      {
+        "name":"Bob",
+        "text":"What about we buy some heal?"
+      }
+    ],
+    "success":[
+      {
+        "name":"Bob",
+        "text":"Woohoo!"
+      },
+      {
+        "name":"Bob",
+        "text":"Oooh yeah! New shining armor, baby~"
+      },
+      {
+        "name":"Bob",
+        "text":"Hopefully we won't die with all these potions"
+      }
+    ],
+    "failed":[
+      {
+        "name":"Bob",
+        "text":"What the?! I said the weapon!!"
+      },
+      {
+        "name":"Bob",
+        "text":"You want us to die, do you?"
+      },
+      {
+        "name":"Bob",
+        "text":"OoOoOo We'Re sO PoWerFUl, wE don'T neED HEaLS~ dumbvoice"
+      }
+    ]
+  }
+}
