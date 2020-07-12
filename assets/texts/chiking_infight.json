@@ -1,0 +1,10 @@
+{
+	"first": [
+	    {"name": "Chicking", "text": "Bock"},
+	    {"name": "Bob", "text": "Ugh why do I have to fight it..."}
+	],
+	"next": [
+	    {"name": "Chicking", "text": "Bock"},
+	    {"name": "Bob", "text": "I'll beat you now!"}
+	]
+}

@@ -15,4 +15,7 @@
     {"name": "Voice", "text": "I got to choose!"},
     {"name": "Bob", "text": "...Okay, but be sure to get what I want."},
     {"name": "Voice", "text": "*sigh*"},
+    {"name": "Bob", "text": "Or I'll listen to you less every time you don't pick what I want."},
+    {"name": "Bob", "text": "Deal?"},
+    {"name": "Voice", "text": "Whatever, whatever, okay"},
 ]

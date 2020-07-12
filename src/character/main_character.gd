@@ -67,8 +67,18 @@ func process_action():
 		actions.HEAL:
 			if action_result.success:
 				var amount = stats.max_health * 0.25
-				stats.heal(amount)
-				Global.health_bar.update_health_bar(stats.current_health, 'heal')
+				var heal_result = stats.heal(amount)
+				
+				if !heal_result:
+					Global.dialogue_box.show_comment(
+						[{"name": "Bob", "text": "I don't have any potions left!"}], 
+						false
+					)
+					yield(Global.dialogue_box, "comment_done")
+					
+				else:
+					Global.health_bar.update_health_bar(stats.current_health, 'heal')
+					
 				action_result.enemy_dead = false
 			else:
 				action_result.enemy_dead = false

@@ -67,7 +67,7 @@ func combat_finished():
 	if active_character.role == Battler.roles.ENEMY:
 		parent.get_node("Lost").play()
 		Global.dialogue_box.show_comment(
-			[{"name": "Voice", "text": "Haha nooob!!"}], 
+			[{"name": "Voice", "text": "Haha Bob you nooob!!"}], 
 			true
 		)
 		yield(Global.dialogue_box, "comment_done")
@@ -77,6 +77,9 @@ func combat_finished():
 		Transition.fade_to("res://src/others/LoseScene.tscn")
 		
 	else:
+		Global.enemy_sprite.get_node('AnimationPlayer').play('dead')
+		parent.get_node("Win").play();
+		var outro_dialogue = Global.parse_json_file(Transition.get_param('outro_script_path'))
 		game_state.current_attempt = 0
 		game_state.enemies_won += 1
 		
@@ -86,30 +89,16 @@ func combat_finished():
 			parent.get_node("Win").play();
 
 		Global.dialogue_box.show_comment(
-			win_dialogue[randi()%win_dialogue.size()], 
+			outro_dialogue, 
 			true
 		)
 		yield(Global.dialogue_box, "comment_done")
-		
-		
-		
-		var outro = Global.parse_json_file(get_outro_dialog(game_state.enemies_won))
-
-		Global.dialogue_box.show_comment(outro, true)
-		yield(Global.dialogue_box, "comment_done")
-		
+	
+		game_state.current_attempt = 0
+		game_state.enemies_won += 1
 		parent.clear_globals()
 	
 		if game_state.enemies_won == 3:
 			Transition.fade_to("res://src/others/EndScene.tscn")
 		else:
 			Transition.fade_to("res://levels/shop/Shop.tscn")
-
-func get_outro_dialog(win_count:int):
-	match win_count:
-		1:
-			return "res://assets/texts/outroChicking.json"
-		2:
-			return "res://assets/texts/outroRoy.json"
-		3:
-			return "res://assets/texts/outroDovic.json"

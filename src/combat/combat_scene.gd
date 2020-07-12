@@ -2,6 +2,7 @@
 extends Node2D
 
 var player = preload("res://src/character/MainCharacter.tscn").instance()
+var game_state = preload("res://src/game state/GameState.tres")
 
 var sprite_position = Vector2(544, 388)
 var enemy
@@ -16,7 +17,12 @@ func _ready():
 	sprite.position = sprite_position
 	add_child(sprite)
 	
-	initial_dialogue = Global.parse_json_file(Transition.get_param('intro_script_path'))
+	var prefight_dialogue = Global.parse_json_file(Transition.get_param('intro_script_path'))
+	
+	if game_state.current_attempt > 0:
+		initial_dialogue = prefight_dialogue.next
+	else:
+		initial_dialogue = prefight_dialogue.first
 	
 	Global.player_node = player
 	Global.enemy_node = enemy

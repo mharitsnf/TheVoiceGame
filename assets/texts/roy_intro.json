@@ -1,0 +1,15 @@
+{
+    "first": [
+    {"name": "Bob", "text": "Hopefully our next enemy isn't some other animal or some gelatinous cube"},
+    {"name": "Voice", "text": "Nope, it's not"},
+    {"name": "Bob", "text": "Well, who is it?"},
+    {"name": "Voice", "text": "It's Roy"},
+    {"name": "Bob", "text": "From the warehouse?"},
+    {"name": "Voice", "text": "The firebender, my friend"},
+    {"name": "Bob", "text": "LET'S GOOOOO"}
+    ],
+    "next": [
+    {"name": "Voice", "text": "Are you ready now?"},
+    {"name": "Bob", "text": "I'm not gonna burned twice"}
+    ]
+}
