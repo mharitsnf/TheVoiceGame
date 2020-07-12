@@ -61,6 +61,7 @@ script = ExtResource( 4 )
 position = Vector2( 597.537, 400.477 )
 z_index = -1
 frames = SubResource( 9 )
+frame = 3
 playing = true
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]

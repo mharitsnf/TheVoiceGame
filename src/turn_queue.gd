@@ -73,6 +73,9 @@ func combat_finished():
 		)
 		yield(Global.dialogue_box, "comment_done")
 		game_state.current_attempt += 1
+		parent.clear_globals()
+		
+		Transition.fade_to("res://src/others/LoseScene.tscn")
 		
 	else:
 		parent.get_node("Win").play();
@@ -83,10 +86,9 @@ func combat_finished():
 		yield(Global.dialogue_box, "comment_done")
 		game_state.current_attempt = 0
 		game_state.enemies_won += 1
+		parent.clear_globals()
 	
-	parent.clear_globals()
-	
-	if game_state.enemies_won == 3:
-		Transition.fade_to("res://levels/shop/Shop.tscn")
-	else:
-		Transition.fade_to("res://levels/shop/Shop.tscn")
+		if game_state.enemies_won == 3:
+			Transition.fade_to("res://src/others/EndScene.tscn")
+		else:
+			Transition.fade_to("res://levels/shop/Shop.tscn")
