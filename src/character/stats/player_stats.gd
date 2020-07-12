@@ -12,3 +12,11 @@ func eat_food(amount):
 	if current_health > max_health:
 		max_health = current_health
 		
+func heal(value):
+	if potion_count > 0:
+		current_health += value
+		if current_health > max_health:
+			current_health = max_health
+		potion_count -= 1
+		return current_health
+	return false

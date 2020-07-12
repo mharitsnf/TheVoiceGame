@@ -44,6 +44,17 @@ func initial_dialogue():
 	$DialogueBox.show_comment(initial_dialogue, false)
 	yield($DialogueBox, "comment_done")
 	
+func result_dialogue():
+	var result_dialogue = [
+		{'name': 'Bob', 'text': "I'm a bit stronger now... My attack point is currently %s." % player_stats.damage},
+		{'name': 'Bob', 'text': "And my defense is %s." % player_stats.defense},
+		{'name': 'Bob', 'text': "The most important thing is..."},
+		{'name': 'Bob', 'text': "For every 100 commands you ask me to do, I'll only follow %s of them." % (player_stats.affinity * 100)},
+		{'name': 'Voice', 'text': "...Got it champ."},
+	]
+	$DialogueBox.show_comment(result_dialogue, false)
+	yield($DialogueBox, "comment_done")
+	
 func prefight_dialogue():
 	match game_state.enemies_won:
 		0:
@@ -92,6 +103,7 @@ func show_dialog():
 		
 		wishlist.remove(wish)
 		
+	yield(result_dialogue(), 'completed')
 	yield(prefight_dialogue(), "completed")
 	continue_to_combat()
 		
@@ -165,38 +177,38 @@ func wish_check(expected: int):
 	match expected:
 		0:
 			if (wish == 0):
-				player_stats.affinity += 0.25
+				player_stats.affinity += 0.1
 				$DialogueBox.show_comment([success[wish]], false)
 				yield($DialogueBox, "comment_done")
 			else:
-				player_stats.affinity -= 0.05
+				player_stats.affinity -= 0.03
 				$DialogueBox.show_comment([failed[wish]], false)
 				yield($DialogueBox, "comment_done")
 		1:
 			if (wish == 1):
-				player_stats.affinity -= 0.25
+				player_stats.affinity += 0.1
 				$DialogueBox.show_comment([success[wish]], false)
 				yield($DialogueBox, "comment_done")
 			else:
-				player_stats.affinity += 0.05
+				player_stats.affinity -= 0.03
 				$DialogueBox.show_comment([failed[wish]], false)
 				yield($DialogueBox, "comment_done")
 		2:
 			if (wish == 2):
-				player_stats.affinity += 0.25
+				player_stats.affinity += 0.1
 				$DialogueBox.show_comment([success[wish]], false)
 				yield($DialogueBox, "comment_done")
 			else:
-				player_stats.affinity -= 0.05
+				player_stats.affinity -= 0.03
 				$DialogueBox.show_comment([failed[wish]], false)
 				yield($DialogueBox, "comment_done")
 		_:
 			if (wish == 3 || wish == 4 || wish == 5):
-				player_stats.affinity += 0.25
+				player_stats.affinity += 0.1
 				$DialogueBox.show_comment([success[wish]], false)
 				yield($DialogueBox, "comment_done")
 			else:
-				player_stats.affinity -= 0.05
+				player_stats.affinity -= 0.03
 				$DialogueBox.show_comment([failed[wish]], false)
 				yield($DialogueBox, "comment_done")
 

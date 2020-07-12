@@ -93,7 +93,7 @@ func combat_finished():
 			true
 		)
 		yield(Global.dialogue_box, "comment_done")
-    
+	
 		game_state.current_attempt = 0
 		game_state.enemies_won += 1
 		parent.clear_globals()
