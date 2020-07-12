@@ -55,26 +55,27 @@ script = ExtResource( 4 )
 
 [node name="TurnQueue" parent="." instance=ExtResource( 2 )]
 
-[node name="TextureRect" type="AnimatedSprite" parent="TurnQueue"]
-position = Vector2( 597.537, 400.477 )
-frames = SubResource( 9 )
-frame = 1
-playing = true
-
-[node name="Lost" type="AudioStreamPlayer" parent="TurnQueue"]
-stream = ExtResource( 6 )
-
-[node name="Win" type="AudioStreamPlayer" parent="TurnQueue"]
-stream = ExtResource( 8 )
-
-[node name="Victory" type="AudioStreamPlayer" parent="TurnQueue"]
-stream = ExtResource( 7 )
-
 [node name="HUD" parent="." instance=ExtResource( 1 )]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="TextureRect" type="AnimatedSprite" parent="."]
+position = Vector2( 597.537, 400.477 )
+z_index = -1
+frames = SubResource( 9 )
+frame = 7
+playing = true
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 volume_db = -22.0
+
+[node name="Lost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [node name="EnemyHealthBar" parent="." instance=ExtResource( 3 )]
 margin_left = 148.497

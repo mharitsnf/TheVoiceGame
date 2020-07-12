@@ -6,3 +6,4 @@
 script = ExtResource( 1 )
 enemies_won = 0
 first_shop_done = false
+current_attempt = 0

@@ -21,6 +21,7 @@ var number_of_actions := 6
 
 func _ready():
 	randomize()
+	print([game_state.enemies_won, game_state.current_attempt])
 	$Button1.add_to_group('cards')
 	$Button2.add_to_group('cards')
 	$Button3.add_to_group('cards')
@@ -63,7 +64,7 @@ func show_dialog():
 		
 		wishlist.remove(wish)
 		
-	print('done')
+	continue_to_combat()
 		
 
 func _on_Button_pressed():
@@ -178,3 +179,35 @@ func disable_buttons():
 func enable_buttons():
 	get_tree().call_group('cards', 'set_disabled', false)
 
+func continue_to_combat():
+	match game_state.enemies_won:
+		0:
+			Transition.fade_to(
+				"res://src/combat/CombatScene.tscn",
+				{
+					'intro_script_path': "res://assets/texts/chiking_intro.json",
+					'outro_script_path': "res://assets/texts/chiking_intro.json",
+					'enemy_scene': "res://src/character/Enemy.tscn",
+					'sprite_scene': "res://src/character/sprites/Chiking.tscn"
+				}
+			)
+		1:
+			Transition.fade_to(
+				"res://src/combat/CombatScene.tscn",
+				{
+					'intro_script_path': "res://assets/texts/introRoy.json",
+					'outro_script_path': "res://assets/texts/introRoy.json",
+					'enemy_scene': "res://src/character/Enemy2.tscn",
+					'sprite_scene': "res://src/character/sprites/Human.tscn"
+				}
+			)
+		2:
+			Transition.fade_to(
+				"res://src/combat/CombatScene.tscn",
+				{
+					'intro_script_path': "res://assets/texts/introDovic.json",
+					'outro_script_path': "res://assets/texts/introDovic.json",
+					'enemy_scene': "res://src/character/Enemy3.tscn",
+					'sprite_scene': "res://src/character/sprites/Pramexas.tscn"
+				}
+			)
