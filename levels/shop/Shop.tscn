@@ -1,0 +1,339 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://levels/shop/Shop.gd" type="Script" id=1]
+[ext_resource path="res://assets/card_armor.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "play"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "play"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "play"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "play"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect4:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect4:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "play"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect5:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect5:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "play"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect6:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect6:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 192.504
+margin_top = 105.329
+margin_right = 350.504
+margin_bottom = 335.329
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 498.915
+margin_top = 97.7219
+margin_right = 656.915
+margin_bottom = 327.722
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 902.843
+margin_top = 111.431
+margin_right = 1060.84
+margin_bottom = 341.431
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="."]
+margin_left = 119.678
+margin_top = 428.335
+margin_right = 277.678
+margin_bottom = 658.335
+text = "4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="."]
+margin_left = 495.104
+margin_top = 434.35
+margin_right = 653.104
+margin_bottom = 664.35
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button6" type="Button" parent="."]
+margin_left = 899.561
+margin_top = 429.011
+margin_right = 1057.56
+margin_bottom = 659.011
+text = "6"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_left = 74.1172
+margin_top = 92.9279
+margin_right = 310.117
+margin_bottom = 342.928
+texture = ExtResource( 4 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.00248528 )
+margin_left = 457.216
+margin_top = 86.2537
+margin_right = 693.216
+margin_bottom = 336.254
+texture = ExtResource( 4 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+visible = false
+margin_left = 861.673
+margin_top = 108.946
+margin_right = 1097.67
+margin_bottom = 358.946
+texture = ExtResource( 4 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+visible = false
+margin_left = 66.108
+margin_top = 418.629
+margin_right = 302.108
+margin_bottom = 668.629
+texture = ExtResource( 4 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+visible = false
+margin_left = 451.877
+margin_top = 423.968
+margin_right = 687.877
+margin_bottom = 673.968
+texture = ExtResource( 4 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+visible = false
+margin_left = 864.342
+margin_top = 415.959
+margin_right = 1100.34
+margin_bottom = 665.959
+texture = ExtResource( 4 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="."]
+anims/play = SubResource( 1 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/play = SubResource( 2 )
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
+anims/play = SubResource( 3 )
+
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="."]
+anims/play = SubResource( 4 )
+
+[node name="AnimationPlayer5" type="AnimationPlayer" parent="."]
+anims/play = SubResource( 5 )
+
+[node name="AnimationPlayer6" type="AnimationPlayer" parent="."]
+anims/play = SubResource( 6 )
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_Button5_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_Button6_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_Button5_pressed"]
+[connection signal="ready" from="AnimationPlayer1" to="." method="_on_AnimationPlayer_ready"]
+[connection signal="ready" from="AnimationPlayer2" to="." method="_on_AnimationPlayer_ready"]
+[connection signal="ready" from="AnimationPlayer3" to="." method="_on_AnimationPlayer_ready"]
+[connection signal="ready" from="AnimationPlayer4" to="." method="_on_AnimationPlayer_ready"]
+[connection signal="ready" from="AnimationPlayer5" to="." method="_on_AnimationPlayer_ready"]
+[connection signal="ready" from="AnimationPlayer6" to="." method="_on_AnimationPlayer_ready"]
