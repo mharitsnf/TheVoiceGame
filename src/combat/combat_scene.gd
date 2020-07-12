@@ -3,7 +3,7 @@ extends Node2D
 
 var player = preload("res://src/character/MainCharacter.tscn").instance()
 
-var sprite_position = Vector2(896, 448)
+var sprite_position = Vector2(544, 388)
 var enemy
 
 var initial_dialogue
