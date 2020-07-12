@@ -61,7 +61,6 @@ script = ExtResource( 4 )
 position = Vector2( 597.537, 400.477 )
 z_index = -1
 frames = SubResource( 9 )
-frame = 7
 playing = true
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
@@ -78,7 +77,7 @@ stream = ExtResource( 8 )
 stream = ExtResource( 7 )
 
 [node name="EnemyHealthBar" parent="." instance=ExtResource( 3 )]
-margin_left = 148.497
-margin_top = 45.1893
-margin_right = 148.497
-margin_bottom = 45.1893
+margin_left = 432.0
+margin_top = 184.0
+margin_right = 432.0
+margin_bottom = 184.0
