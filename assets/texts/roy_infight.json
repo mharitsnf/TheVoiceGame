@@ -1,0 +1,12 @@
+{
+    "first": [
+    {"name": "Roy", "text": "Well well well who do we have here?"},
+    {"name": "Bob", "text": "Hi! I'm such a big fan. Would you mind to give me your autograph?"},
+    {"name": "Roy", "text": "OH it is so nice to meet a fan. Where do you want me to sign?"},
+    {"name": "Bob", "text": "On your dead body! HAHAHAHAHAHAHAHA"}
+    ],
+    "next": [
+    {"name": "Roy", "text": "You come again?"},
+    {"name": "Bob", "text": "Shut it, candle-man and call me the Extinguisher now"}
+    ]
+}

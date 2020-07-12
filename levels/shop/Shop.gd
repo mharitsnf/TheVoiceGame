@@ -17,7 +17,7 @@ var success
 var wish := 0
 
 # HARDCODE
-var number_of_actions := 6
+var number_of_actions := 3
 
 func _ready():
 	randomize()
@@ -45,6 +45,35 @@ func initial_dialogue():
 	$DialogueBox.show_comment(initial_dialogue, false)
 	yield($DialogueBox, "comment_done")
 	
+func prefight_dialogue():
+	match game_state.enemies_won:
+		0:
+			var prefight_dialogue = Global.parse_json_file("res://assets/texts/chiking_intro.json")
+			if game_state.current_attempt > 0:
+				$DialogueBox.show_comment(prefight_dialogue.next, false)
+				yield($DialogueBox, "comment_done")
+			else:
+				$DialogueBox.show_comment(prefight_dialogue.first, false)
+				yield($DialogueBox, "comment_done")
+				
+		1:
+			var prefight_dialogue = Global.parse_json_file("res://assets/texts/roy_intro.json")
+			if game_state.current_attempt > 0:
+				$DialogueBox.show_comment(prefight_dialogue.next, false)
+				yield($DialogueBox, "comment_done")
+			else:
+				$DialogueBox.show_comment(prefight_dialogue.first, false)
+				yield($DialogueBox, "comment_done")
+				
+		2:
+			var prefight_dialogue = Global.parse_json_file("res://assets/texts/dovic_intro.json")
+			if game_state.current_attempt > 0:
+				$DialogueBox.show_comment(prefight_dialogue.next, false)
+				yield($DialogueBox, "comment_done")
+			else:
+				$DialogueBox.show_comment(prefight_dialogue.first, false)
+				yield($DialogueBox, "comment_done")
+	
 func show_dialog():
 	for i in number_of_actions:
 		randomize()
@@ -64,6 +93,7 @@ func show_dialog():
 		
 		wishlist.remove(wish)
 		
+	yield(prefight_dialogue(), "completed")
 	continue_to_combat()
 		
 
@@ -185,8 +215,8 @@ func continue_to_combat():
 			Transition.fade_to(
 				"res://src/combat/CombatScene.tscn",
 				{
-					'intro_script_path': "res://assets/texts/chiking_intro.json",
-					'outro_script_path': "res://assets/texts/chiking_intro.json",
+					'intro_script_path': "res://assets/texts/chiking_infight.json",
+					'outro_script_path': "res://assets/texts/chiking_outro.json",
 					'enemy_scene': "res://src/character/Enemy.tscn",
 					'sprite_scene': "res://src/character/sprites/Chiking.tscn"
 				}
@@ -195,8 +225,8 @@ func continue_to_combat():
 			Transition.fade_to(
 				"res://src/combat/CombatScene.tscn",
 				{
-					'intro_script_path': "res://assets/texts/introRoy.json",
-					'outro_script_path': "res://assets/texts/introRoy.json",
+					'intro_script_path': "res://assets/texts/roy_infight.json",
+					'outro_script_path': "res://assets/texts/roy_outro.json",
 					'enemy_scene': "res://src/character/Enemy2.tscn",
 					'sprite_scene': "res://src/character/sprites/Human.tscn"
 				}
@@ -205,8 +235,8 @@ func continue_to_combat():
 			Transition.fade_to(
 				"res://src/combat/CombatScene.tscn",
 				{
-					'intro_script_path': "res://assets/texts/introDovic.json",
-					'outro_script_path': "res://assets/texts/introDovic.json",
+					'intro_script_path': "res://assets/texts/dovic_infight.json",
+					'outro_script_path': "res://assets/texts/dovic_outro.json",
 					'enemy_scene': "res://src/character/Enemy3.tscn",
 					'sprite_scene': "res://src/character/sprites/Pramexas.tscn"
 				}

@@ -390,12 +390,13 @@ __meta__ = {
 [node name="Candle" type="AnimatedSprite" parent="."]
 position = Vector2( 160, 160 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="Candle2" type="AnimatedSprite" parent="."]
 position = Vector2( 1040, 160 )
 frames = SubResource( 5 )
-frame = 2
+frame = 3
 playing = true
 flip_h = true
 

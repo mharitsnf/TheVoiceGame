@@ -1,0 +1,12 @@
+{
+	"first": [
+    {"name": "Dovic", "text": "Welcome, challenger"},
+    {"name": "Bob", "text": "Hi, you seems familiar. Did you went to the supermarket near the townhall a week ago?"},
+    {"name": "Dovic", "text": "I'm afraid you're mistaken but a lot of people said it to me earlier"},
+    {"name": "Bob", "text": "Ah okay, that's all right. Fight?"}
+	],
+	"next": [
+    {"name": "Dovic", "text": "Are you challenging me again?"},
+    {"name": "Bob", "text": "Yeah, and I'm bringing hand sanitizer this time"}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"first": [
+    {"name": "Bob", "text": "Who's the boss?"},
+    {"name": "Voice", "text": "Wait a minute, it said...uuuhhh...Dovic?"},
+    {"name": "Bob", "text": "Who?"},
+    {"name": "Voice", "text": "Don't ask me, I don't know either"},
+    {"name": "Bob", "text": "And I thought you are all-knowing..."},
+    {"name": "Voice", "text": "Well, I'm just a voice, okay?"},
+    {"name": "Bob", "text": "All right, all right"}
+	],
+	"next": [
+    {"name": "Bob", "text": "Don't forget to wear your mask this time"},
+    {"name": "Voice", "text": "And I already wash my hand"}
+	]
+}

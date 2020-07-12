@@ -3,6 +3,10 @@
     {"name": "Bob", "text": "What?! Why?!"},
     {"name": "Voice", "text": "Today is the day of the tournament ya dumbass. Why do I have to be the voice inside your head anyway?"},
     {"name": "Bob", "text": "Well, I don't want you either but what can we do?"},
-    {"name": "Voice", "text": "Yeah...Let's go to the shop first."}    
+    {"name": "Bob", "text": "Tell me, what's with this tournament again?"},
+    {"name": "Voice", "text": "You have to fight with various beings, basically. It could be pretty dangerous."},
+    {"name": "Voice", "text": "I will give you some suggestions in the fight, don't worry"},
+    {"name": "Bob", "text": "Wow, somebody is having a great mood today!"},
+    {"name": "Voice", "text": "Yeah, whatever... Let's go to the shop first."}    
 ]
 

@@ -68,7 +68,7 @@ func combat_finished():
 	if active_character.role == Battler.roles.ENEMY:
 		parent.get_node("Lost").play()
 		Global.dialogue_box.show_comment(
-			[{"name": "Voice", "text": "Haha nooob!!"}], 
+			[{"name": "Voice", "text": "Haha Bob you nooob!!"}], 
 			true
 		)
 		yield(Global.dialogue_box, "comment_done")
@@ -78,9 +78,12 @@ func combat_finished():
 		Transition.fade_to("res://src/others/LoseScene.tscn")
 		
 	else:
+		Global.enemy_sprite.get_node('AnimationPlayer').play('dead')
 		parent.get_node("Win").play();
+		var outro_dialogue = Global.parse_json_file(Transition.get_param('outro_script_path'))
+		
 		Global.dialogue_box.show_comment(
-			win_dialogue[randi()%win_dialogue.size()], 
+			outro_dialogue, 
 			true
 		)
 		yield(Global.dialogue_box, "comment_done")
