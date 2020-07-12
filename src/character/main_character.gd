@@ -16,6 +16,7 @@ func _ready():
 	enemy = Global.enemy_node
 	
 func _combat_button_up(button_name):
+	print(button_name)
 	match button_name:
 		'Attack':
 			action_result.action = 'attack'
@@ -32,15 +33,13 @@ func _combat_button_up(button_name):
 				action_result.success = false
 				
 		'Items':
-			print('attack')
-			is_target_dead = false
-			current_action = 'attack'
-		'Defend':
-			is_target_dead = false
-			current_action = 'defend'
-		'Items':
-			is_target_dead = false
-			current_action = 'heal'
+			action_result.action = 'items'
+			if randi()%1+1 == 0:
+				action_result.success = true
+			else:
+				action_result.success = false
+				
+	emit_signal("button_selected")
 	
 func process_action():
 	match action_result.action:

@@ -48,18 +48,7 @@ func start():
 	Global.defend_button.add_to_group('btns')
 	Global.items_button.add_to_group('btns')
 	
-	Global.attack_button.add_to_group('btns')
-	Global.defend_button.add_to_group('btns')
-	Global.items_button.add_to_group('btns')
-	
-	var player_instance = player.instance()
-	player_instance.add_to_group('player')
-	var enemy_instance = enemy.instance()
-	enemy_instance.add_to_group('enemy')
-	
 	Global.health_bar.initialize(player.stats.max_health, player.stats.current_health)
-	
-	Global.health_bar.initialize(player_instance.stats.max_health, player_instance.stats.current_health)
 	
 	# warning-ignore
 	Global.attack_button.connect("button_up", player, '_combat_button_up', [Global.attack_button.name])
