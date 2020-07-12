@@ -80,12 +80,20 @@ func combat_finished():
 		Global.enemy_sprite.get_node('AnimationPlayer').play('dead')
 		parent.get_node("Win").play();
 		var outro_dialogue = Global.parse_json_file(Transition.get_param('outro_script_path'))
+		game_state.current_attempt = 0
+		game_state.enemies_won += 1
 		
+		if (game_state.enemies_won == 3):
+			parent.get_node("Victory").play();	
+		else:
+			parent.get_node("Win").play();
+
 		Global.dialogue_box.show_comment(
 			outro_dialogue, 
 			true
 		)
 		yield(Global.dialogue_box, "comment_done")
+    
 		game_state.current_attempt = 0
 		game_state.enemies_won += 1
 		parent.clear_globals()
