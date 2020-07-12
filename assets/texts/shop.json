@@ -11,7 +11,19 @@
       },
       {
         "name":"Bob",
-        "text":"What about we buy some heal?"
+        "text":"What about we buy some food, like, apples?"
+      },
+      {
+        "name":"Bob",
+        "text":"What about we buy some food, like, breads?"
+      },
+      {
+        "name":"Bob",
+        "text":"What about we buy some food, like, chickens?"
+      },
+      {
+        "name":"Bob",
+        "text":"I think we need some potions"
       }
     ],
     "success":[
@@ -25,7 +37,19 @@
       },
       {
         "name":"Bob",
-        "text":"Hopefully we won't die with all these potions"
+        "text":"Cool red apples~"
+      },
+      {
+        "name":"Bob",
+        "text":"Great job, you embodiment of chaos!"
+      },
+      {
+        "name":"Bob",
+        "text":"YES! You're good!"
+      },
+      {
+        "name":"Bob",
+        "text":"Not bad, cool!"
       }
     ],
     "failed":[
@@ -39,7 +63,19 @@
       },
       {
         "name":"Bob",
-        "text":"OoOoOo We'Re sO PoWerFUl, wE don'T neED HEaLS~ dumbvoice"
+        "text":"NOT APPLES!!! OoOoOo We'Re sO PoWerFUl, wE don'T neED HEaLS~ dumbvoice"
+      },
+      {
+        "name":"Bob",
+        "text":"*sigh* Alright alright..."
+      },
+      {
+        "name":"Bob",
+        "text":"My chimkens..."
+      },
+      {
+        "name":"Bob",
+        "text":"Oh well, I guess we'll be dying again..."
       }
     ]
   }

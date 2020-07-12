@@ -1,0 +1,18 @@
+[
+    {"name": "Bob", "text": "What's the deal with these cards?"},
+    {"name": "Voice", "text": "Basically you have to pick one of them to get a reward I guess."},
+    {"name": "Bob", "text": "I'm pretty sure that's not how shops work..."},
+    {"name": "Voice", "text": "Yeah, yeah, just bear with it for a while."},
+    {"name": "Bob", "text": "What will I get here?"},
+    {"name": "Voice", "text": "Basically you'll get stuffs that will increase your damage or defense, regenerate your health, or get some items to use in battle."},
+    {"name": "Bob", "text": "OOOHH LEMME GET SOME FOODS!!!"},
+    {"name": "Voice", "text": "Now now, we don't know which one to pick, don't we?"},
+    {"name": "Bob", "text": "Yeah, that's right"},
+    {"name": "Voice", "text": "..."},
+    {"name": "Bob", "text": "..."},
+    {"name": "Bob", "text": "I GOT TO CHOOSE!!!"},
+    {"name": "Voice", "text": "NO YOU DON'T KNOW THE FIRST THING ABOUT THIS TOURNAMENT"},
+    {"name": "Voice", "text": "I got to choose!"},
+    {"name": "Bob", "text": "...Okay, but be sure to get what I want."},
+    {"name": "Voice", "text": "*sigh*"},
+]

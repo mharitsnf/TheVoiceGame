@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://src/game state/game_state.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+enemies_won = 0
+first_shop_done = false
