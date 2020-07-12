@@ -3,19 +3,27 @@ extends Node2D
 var arr_choices = [0, 1, 2, 3, 4, 5]
 
 onready var shop_dialogues = Global.parse_json_file("res://assets/texts/shop.json")
-var player_stats = preload("res://src/character/stats/PlayerStats.tres")
 var prompt
 var failed
 var success
+var wish := 0
+
+# HARDCODE
+var actions := 2
+
+func show_dialog():
+	randomize()
+	wish = randi() % 3
+	$DialogueBox.show_comment([prompt[wish]], true)
 
 func _ready():
 	randomize()
-	print(player_stats)
+	arr_choices.shuffle()
 	prompt = shop_dialogues.buy.prompt
 	failed = shop_dialogues.buy.failed
 	success = shop_dialogues.buy.success
-	arr_choices.shuffle()
-	print(arr_choices)
+	show_dialog()
+	
 
 func _on_Button_pressed():
 	card_check(arr_choices[0], 1)
@@ -60,9 +68,48 @@ func card_check(index: int, location: int):
 		_:
 			print("FUNCTION ERROR")
 			
-
+	wish_check(index)
 	var image = load(image_path)
 	
 	get_node("Button" + String(location)).disabled = true
 	get_node("TextureRect" + String(location)).texture = image
 	get_node("AnimationPlayer" + String(location)).play("fade_out")
+	
+	yield(get_tree().create_timer(3), "timeout")
+	
+	if actions:
+		actions -= 1
+		show_dialog()
+	else:
+		print("KELAR")
+
+func wish_check(expected: int):
+	match expected:
+		0:
+			if (wish == 0):
+				$DialogueBox.show_comment([success[wish]], true)
+				yield($DialogueBox, "comment_done")
+			else:
+				$DialogueBox.show_comment([failed[wish]], true)
+				yield($DialogueBox, "comment_done")
+		1:
+			if (wish == 1):
+				$DialogueBox.show_comment([success[wish]], true)
+				yield($DialogueBox, "comment_done")
+			else:
+				$DialogueBox.show_comment([failed[wish]], true)
+				yield($DialogueBox, "comment_done")
+		2:
+			if (wish == 2):
+				$DialogueBox.show_comment([success[wish]], true)
+				yield($DialogueBox, "comment_done")
+			else:
+				$DialogueBox.show_comment([failed[wish]], true)
+				yield($DialogueBox, "comment_done")
+		_:
+			if (wish == 3 || wish == 4 || wish == 5):
+				$DialogueBox.show_comment([success[wish]], true)
+				yield($DialogueBox, "comment_done")
+			else:
+				$DialogueBox.show_comment([failed[wish]], true)
+				yield($DialogueBox, "comment_done")
