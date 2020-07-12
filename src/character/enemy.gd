@@ -9,7 +9,9 @@ func _ready():
 	target = get_tree().get_nodes_in_group('player')[0]
 	
 func attack():
-	return target.stats.receive_damage(stats.damage)
+	var damage_result = target.stats.receive_damage(stats.damage)
+	Global.health_bar.update_health_bar(damage_result[1])
+	return damage_result[0]
 	
 func defend():
 	return false

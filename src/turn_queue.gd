@@ -23,7 +23,7 @@ func play_turn():
 	print('player is ded ' + str(character_dead))
 	
 	if character_dead:
-		print('sedap')
+		combat_finished()
 	else:
 		next_turn()
 
@@ -32,3 +32,11 @@ func next_turn():
 	active_character = get_child(new_index)
 	turn += 1
 	play_turn()
+	
+func combat_finished():
+	if active_character.role == Battler.roles.ENEMY:
+		Global.dialogue_box.show_comment(["You deed!", "Try again sometimes babay"], true)
+		yield(Global.dialogue_box, "comment_done")
+	else:
+		Global.dialogue_box.show_comment(["Yo win bro"], true)
+		yield(Global.dialogue_box, "comment_done")

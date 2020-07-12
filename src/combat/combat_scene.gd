@@ -15,6 +15,7 @@ func initialize():
 	Global.defend_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Defend
 	Global.items_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Items
 	Global.dialogue_box = $HUD/HBoxContainer/DialogueBox
+	Global.health_bar = $HUD/HBoxContainer/VBoxContainer/HealthBar
 	
 	Global.attack_button.add_to_group('btns')
 	Global.defend_button.add_to_group('btns')
@@ -24,6 +25,8 @@ func initialize():
 	player_instance.add_to_group('player')
 	var enemy_instance = enemy.instance()
 	enemy_instance.add_to_group('enemy')
+	
+	Global.health_bar.initialize(player_instance.stats.max_health, player_instance.stats.current_health)
 	
 	# warning-ignore
 	Global.attack_button.connect("button_up", player_instance, '_combat_button_up', [Global.attack_button.name])
