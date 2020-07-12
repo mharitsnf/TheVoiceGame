@@ -1,0 +1,226 @@
+{
+	"attack": {
+		"prompt": [
+			[
+				{
+					"name" : "Voice",
+					"text" : "Let's give them some!"
+				}
+			],
+			[
+				{
+					"name" : "Voice",
+					"text" : "Give him hell!"
+				}
+			],
+			[
+				{
+					"name" : "Voice",
+					"text" : "Attack!"
+				}
+			],
+		],
+		"success": [
+			[
+				{
+					"name" : "Bob",
+					"text" : "TAKE THIS!!"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "Hell yeah!"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "Attack!"
+				}
+			]
+		],
+		"failed": [
+			[
+				{
+					"name" : "Bob",
+					"text" : "Nuh uh"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "Nah, don't want to"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "Ummmmmmmmmmmm no, you do it yourself :)"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "*drops weapon* Oops my hands sweaty"
+				}
+			]
+		]
+	},
+	"defend": {
+		"prompt": [
+			[
+				{
+					"name" : "Voice",
+					"text" : "I think you better defend this time"
+				}
+			],
+			[
+				{
+					"name" : "Voice",
+					"text" : "Armor up boy"
+				}
+			],
+			[
+				{
+					"name" : "Voice",
+					"text" : "Umm defend...? Please...?"
+				}
+			],
+		],
+		"success": [
+			[
+				{
+					"name" : "Bob",
+					"text" : "Sounds cool, okay"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "Sure, it seems dangerous!"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "Yeah, better safe than sorry"
+				}
+			]
+		],
+		"failed": [
+			[
+				{
+					"name" : "Bob",
+					"text" : "I'm stronk enough shut up"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "SHUT UP LEAVE ME ALONE!!!"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "*scoffs* You think I'll die? Who do you think I am?"
+				},
+				{
+					"name" : "Bob",
+					"text" : "I..."
+				},
+				{
+					"name" : "Bob",
+					"text" : "Am..."
+				},
+				{
+					"name" : "Bob",
+					"text" : "Bob"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "Haha voice go brbrbrbrbr"
+				}
+			]
+		]
+	},
+	"heal": {
+		"prompt": [
+			[
+				{
+					"name" : "Voice",
+					"text" : "Yo heal up"
+				}
+			],
+			[
+				{
+					"name" : "Voice",
+					"text" : "Dude you need some heal"
+				}
+			],
+			[
+				{
+					"name" : "Voice",
+					"text" : "Drink the potion boy"
+				}
+			],
+		],
+		"success": [
+			[
+				{
+					"name" : "Bob",
+					"text" : "Sounds cool, okay"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "Yeah, Imma bit thirsty anyway"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "Okay bro"
+				}
+			]
+		],
+		"failed": [
+			[
+				{
+					"name" : "Bob",
+					"text" : "Nuh I'm hungry not thirsty shut up"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "Uh......"
+				},
+				{
+					"name" : "Bob",
+					"text" : "Don't feel like it"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "..."
+				},
+				{
+					"name" : "Bob",
+					"text" : "Look Voice, a penny!!!"
+				}
+			],
+			[
+				{
+					"name" : "Bob",
+					"text" : "No"
+				}
+			]
+		]
+	}
+}

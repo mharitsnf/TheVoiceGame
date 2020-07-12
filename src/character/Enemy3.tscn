@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/character/enemy.gd" type="Script" id=1]
-[ext_resource path="res://src/character/stats/Enemy1Stats.tres" type="Resource" id=2]
+[ext_resource path="res://src/character/stats/Enemy3Stats.tres" type="Resource" id=2]
 
-[node name="Enemy" type="Node"]
+[node name="Enemy3" type="Node"]
 script = ExtResource( 1 )
 stats = ExtResource( 2 )

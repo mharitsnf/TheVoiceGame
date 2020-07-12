@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://src/character/battler_stats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+max_health = 80
+current_health = 80
+defense = 8
+damage = 10
