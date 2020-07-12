@@ -51,13 +51,14 @@ _global_script_class_icons={
 [application]
 
 config/name="ProbTurnBased"
-run/main_scene="res://src/combat/CombatScene.tscn"
+run/main_scene="res://src/experiment/EnemySelector.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Transition="*res://levels/scene_changer_experiment/Transition.tscn"
 Global="*res://src/autoload/global.gd"
+SceneSwitcher="*res://src/autoload/scene_switcher.gd"
 
 [display]
 

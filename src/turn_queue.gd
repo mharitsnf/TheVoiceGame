@@ -6,6 +6,7 @@ signal end_combat
 
 var active_character: Battler
 var turn := 0
+onready var parent = get_parent()
 
 func initialize():
 	active_character = get_child(0)
@@ -23,7 +24,6 @@ func play_turn():
 		get_tree().call_group('btns', 'toggle_button', false)
 		
 	var character_dead = yield(active_character.play_turn(), 'completed')
-	print('player is ded ' + str(character_dead))
 	
 	if character_dead:
 		combat_finished()
@@ -43,3 +43,5 @@ func combat_finished():
 	else:
 		Global.dialogue_box.show_comment(["Yo win bro"], true)
 		yield(Global.dialogue_box, "comment_done")
+		
+	parent.clear_globals()
