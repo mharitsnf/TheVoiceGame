@@ -18,7 +18,6 @@ var player_defense_up = false
 var enemy_defense_up = false
 
 func initialize():
-	print(game_state)
 	active_character = get_child(0)
 	play_turn()
 

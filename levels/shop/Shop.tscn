@@ -428,7 +428,6 @@ anims/fade_out = SubResource( 17 )
 
 [node name="Score" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -25.0
 autoplay = true
 
 [node name="DialogueBox" parent="." instance=ExtResource( 5 )]

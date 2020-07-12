@@ -21,7 +21,6 @@ var number_of_actions := 3
 
 func _ready():
 	randomize()
-	print([game_state.enemies_won, game_state.current_attempt])
 	$Button1.add_to_group('cards')
 	$Button2.add_to_group('cards')
 	$Button3.add_to_group('cards')
@@ -161,8 +160,6 @@ func add_effects(index : int):
 			player_stats.eat_food(30)
 		5:
 			player_stats.potion_count += 1
-			
-	print([player_stats.damage, player_stats.defense, player_stats.max_health, player_stats.current_health, player_stats.potion_count])
 
 func wish_check(expected: int):
 	match expected:
