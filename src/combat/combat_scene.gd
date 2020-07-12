@@ -36,6 +36,8 @@ func initialize():
 =======
 >>>>>>> 90b5153... Refactor and add sound
 	
+	Global.health_bar.initialize(player_instance.stats.max_health, player_instance.stats.current_health)
+	
 	# warning-ignore
 	Global.attack_button.connect("button_up", player_instance, '_combat_button_up', [Global.attack_button.name])
 	Global.defend_button.connect("button_up", player_instance, '_combat_button_up', [Global.defend_button.name])
