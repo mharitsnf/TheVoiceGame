@@ -4,6 +4,8 @@ class_name TurnQueue
 
 signal end_combat
 
+var game_state = preload("res://src/game state/GameState.tres")
+
 var active_character: Battler
 var turn := 0
 
@@ -16,6 +18,7 @@ var player_defense_up = false
 var enemy_defense_up = false
 
 func initialize():
+	print(game_state)
 	active_character = get_child(0)
 	play_turn()
 
@@ -61,16 +64,29 @@ func next_turn():
 	play_turn()
 	
 func combat_finished():
+	parent.get_node('BGM').stop()
 	if active_character.role == Battler.roles.ENEMY:
-		$Lost.play()
-		Global.dialogue_box.show_comment([{"name": "Voice", "text": "Haha nooob!!"}], true)
+		parent.get_node("Lost").play()
+		Global.dialogue_box.show_comment(
+			[{"name": "Voice", "text": "Haha nooob!!"}], 
+			true
+		)
 		yield(Global.dialogue_box, "comment_done")
+		game_state.current_attempt += 1
+		
 	else:
-		$Win.play();
+		parent.get_node("Win").play();
 		Global.dialogue_box.show_comment(
 			win_dialogue[randi()%win_dialogue.size()], 
 			true
 		)
 		yield(Global.dialogue_box, "comment_done")
-		
+		game_state.current_attempt = 0
+		game_state.enemies_won += 1
+	
 	parent.clear_globals()
+	
+	if game_state.enemies_won == 3:
+		Transition.fade_to("res://levels/shop/Shop.tscn")
+	else:
+		Transition.fade_to("res://levels/shop/Shop.tscn")

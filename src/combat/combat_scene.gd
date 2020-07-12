@@ -2,20 +2,21 @@
 extends Node2D
 
 var player = preload("res://src/character/MainCharacter.tscn").instance()
+
 var sprite_position = Vector2(896, 448)
 var enemy
 
 var initial_dialogue
 
 func _ready():
-	enemy = load(SceneSwitcher.get_param('enemy_scene')).instance()
+	enemy = load(Transition.get_param('enemy_scene')).instance()
 	
-	var sprite = load(SceneSwitcher.get_param('sprite_scene')).instance()
+	var sprite = load(Transition.get_param('sprite_scene')).instance()
 	sprite.get_node('AnimationPlayer').play('idle')
 	sprite.position = sprite_position
 	add_child(sprite)
 	
-	initial_dialogue = Global.parse_json_file(SceneSwitcher.get_param('intro_script_path'))
+	initial_dialogue = Global.parse_json_file(Transition.get_param('intro_script_path'))
 	
 	Global.player_node = player
 	Global.enemy_node = enemy
@@ -24,7 +25,7 @@ func _ready():
 	start()
 
 func start():
-	$AudioStreamPlayer.play()
+	$BGM.play()
 	Global.attack_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Attack
 	Global.defend_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Defend
 	Global.items_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Items
