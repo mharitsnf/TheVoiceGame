@@ -4,8 +4,6 @@ class_name MainCharacter
 signal button_selected
 signal process_completed
 
-var current_action := ''
-
 var enemy
 onready var combat_dialogue = Global.parse_json_file("res://assets/texts/action_dialogues.json")
 
@@ -18,25 +16,25 @@ func _ready():
 func _combat_button_up(button_name):
 	match button_name:
 		'Attack':
-			action_result.action = 'attack'
+			action_result.action = actions.ATTACK
 			if Calculation.calculate_probability(stats.affinity):
-				current_action = 'attack'
+				current_action = actions.ATTACK
 				action_result.success = true
 			else:
 				action_result.success = false
 				
 		'Defend':
-			action_result.action = 'defend'
+			action_result.action = actions.DEFEND
 			if Calculation.calculate_probability(stats.affinity):
-				current_action = 'defense'
+				current_action = actions.DEFEND
 				action_result.success = true
 			else:
 				action_result.success = false
 				
 		'Items':
-			action_result.action = 'heal'
+			action_result.action = actions.HEAL
 			if Calculation.calculate_probability(stats.affinity):
-				current_action = 'heal'
+				current_action = actions.HEAL
 				action_result.success = true
 			else:
 				action_result.success = false
@@ -45,7 +43,7 @@ func _combat_button_up(button_name):
 	
 func process_action():
 	match action_result.action:
-		'attack':
+		actions.ATTACK:
 			if action_result.success:
 				var attack_result = enemy.stats.receive_damage(stats.damage)
 				
@@ -58,14 +56,15 @@ func process_action():
 			else:
 				action_result.enemy_dead = false
 			
-		'defend':
+		actions.DEFEND:
 			if action_result.success:
 				stats.enhance_defense()
+				Global.combat_hud.activate_def_sign()
 				action_result.enemy_dead = false
 			else:
 				action_result.enemy_dead = false
 			
-		'heal':
+		actions.HEAL:
 			if action_result.success:
 				var amount = stats.max_health * 0.25
 				stats.heal(amount)
@@ -79,7 +78,7 @@ func process_action():
 		
 func show_prompt_dialogue():
 	match action_result.action:
-		'attack':
+		actions.ATTACK:
 			Global.dialogue_box.show_comment(
 				combat_dialogue.attack.prompt[randi()%combat_dialogue.attack.prompt.size()], 
 				false
@@ -97,7 +96,7 @@ func show_prompt_dialogue():
 					false
 				)
 				
-		'defend':
+		actions.DEFEND:
 			Global.dialogue_box.show_comment(
 				combat_dialogue.defend.prompt[randi()%combat_dialogue.defend.prompt.size()], 
 				false
@@ -115,7 +114,7 @@ func show_prompt_dialogue():
 					false
 				)
 			
-		'heal':
+		actions.HEAL:
 			Global.dialogue_box.show_comment(
 				combat_dialogue.heal.prompt[randi()%combat_dialogue.heal.prompt.size()], 
 				false
@@ -137,7 +136,7 @@ func show_prompt_dialogue():
 	
 func show_result_dialogue():
 	match action_result.action:
-		'attack':
+		actions.ATTACK:
 			if action_result.success:
 				Global.dialogue_box.show_comment(
 					[{"name": "Narrator", "text": 'Bob dealt %s damage!' % action_result.info['damage_dealt']}], 
@@ -149,7 +148,7 @@ func show_result_dialogue():
 					false
 				)
 				
-		'defend':
+		actions.DEFEND:
 			if action_result.success:
 				Global.dialogue_box.show_comment(
 					[{"name": "Narrator", "text": 'Bob defended! His defense doubled!'}], 
@@ -161,7 +160,7 @@ func show_result_dialogue():
 					false
 				)
 				
-		'heal':
+		actions.HEAL:
 			if action_result.success:
 				Global.dialogue_box.show_comment(
 					[{"name": "Narrator", "text": 'Bob healed for %s!' % (stats.max_health * 0.25)}], 
@@ -175,11 +174,15 @@ func show_result_dialogue():
 				
 	yield(Global.dialogue_box, "comment_done")
 
+func decide_actions_other_than(except_action):
+	var actions = ['']
+
 func play_turn():
-	print(stats.get_stats())
-	if current_action == 'defense':
+	if current_action == actions.DEFEND:
 		stats.revert_defense()
-		current_action = ''
+		Global.combat_hud.deactivate_def_sign()
+		
+	current_action = -1
 	
 	# Wait for button selection
 	yield(self, "button_selected")
@@ -193,7 +196,7 @@ func play_turn():
 	
 	if action_result.enemy_dead:
 		reset_action_result()
-		return true
+		return create_turn_state(true, current_action == actions.DEFEND)
 	else:
 		reset_action_result()
-		return false
+		return create_turn_state(false, current_action == actions.DEFEND)

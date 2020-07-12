@@ -1,10 +1,13 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://src/character/battler_stats.gd" type="Script" id=1]
+[ext_resource path="res://src/character/stats/enemy_stats.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
-max_health = 180
-current_health = 180
+max_health = 140
+current_health = 140
 defense = 40
 damage = 50
+attack_prob = 0.6
+defend_prob = 0.2
+items_prob = 0.2

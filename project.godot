@@ -22,17 +22,27 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "CharacterStats",
 "language": "GDScript",
-"path": "res://src/character/battler_stats.gd"
+"path": "res://src/character/stats/battler_stats.gd"
 }, {
 "base": "Battler",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://src/character/enemy.gd"
 }, {
+"base": "CharacterStats",
+"class": "EnemyStats",
+"language": "GDScript",
+"path": "res://src/character/stats/enemy_stats.gd"
+}, {
 "base": "Battler",
 "class": "MainCharacter",
 "language": "GDScript",
 "path": "res://src/character/main_character.gd"
+}, {
+"base": "CharacterStats",
+"class": "PlayerStats",
+"language": "GDScript",
+"path": "res://src/character/stats/player_stats.gd"
 }, {
 "base": "Node2D",
 "class": "TurnQueue",
@@ -44,7 +54,9 @@ _global_script_class_icons={
 "Battler": "",
 "CharacterStats": "",
 "Enemy": "",
+"EnemyStats": "",
 "MainCharacter": "",
+"PlayerStats": "",
 "TurnQueue": ""
 }
 
