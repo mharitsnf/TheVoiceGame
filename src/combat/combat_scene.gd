@@ -10,12 +10,13 @@ func _ready():
 	initialize()
 
 func initialize():
-#	$AudioStreamPlayer.play()
+	$AudioStreamPlayer.play()
 	Global.attack_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Attack
 	Global.defend_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Defend
 	Global.items_button = $HUD/HBoxContainer/VBoxContainer/HBoxContainer/Items
 	Global.dialogue_box = $HUD/HBoxContainer/DialogueBox
 	Global.health_bar = $HUD/HBoxContainer/VBoxContainer/HealthBar
+	Global.combat_hud = $HUD
 	
 	Global.attack_button.add_to_group('btns')
 	Global.defend_button.add_to_group('btns')

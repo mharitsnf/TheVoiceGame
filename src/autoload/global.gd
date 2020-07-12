@@ -9,3 +9,4 @@ var player_node : Battler
 var dialogue_box : Control
 
 var health_bar : Control
+var combat_hud : Control

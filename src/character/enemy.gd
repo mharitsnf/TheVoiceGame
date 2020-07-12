@@ -11,6 +11,7 @@ func _ready():
 func attack():
 	var damage_result = target.stats.receive_damage(stats.damage)
 	Global.health_bar.update_health_bar(damage_result[1])
+	Global.combat_hud.receive_damage()
 	return damage_result[0]
 	
 func defend():

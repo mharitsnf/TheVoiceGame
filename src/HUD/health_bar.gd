@@ -8,3 +8,4 @@ func initialize(max_health, current_health):
 
 func update_health_bar(new_health):
 	health_bar.value = new_health
+	$Hurt.play()
