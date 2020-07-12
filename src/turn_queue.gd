@@ -62,9 +62,11 @@ func next_turn():
 	
 func combat_finished():
 	if active_character.role == Battler.roles.ENEMY:
+		$Lost.play()
 		Global.dialogue_box.show_comment([{"name": "Voice", "text": "Haha nooob!!"}], true)
 		yield(Global.dialogue_box, "comment_done")
 	else:
+		$Win.play();
 		Global.dialogue_box.show_comment(
 			win_dialogue[randi()%win_dialogue.size()], 
 			true
