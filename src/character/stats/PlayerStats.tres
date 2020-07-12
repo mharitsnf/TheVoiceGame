@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-max_health = 120
-current_health = 120
+max_health = 60
+current_health = 60
 defense = 30
 damage = 40
 affinity = 0.5
+potion_count = 1

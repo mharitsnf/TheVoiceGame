@@ -69,4 +69,5 @@ margin_bottom = -155.0
 [node name="Score" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 4 )
+volume_db = -25.0
 autoplay = true
