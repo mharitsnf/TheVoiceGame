@@ -24,7 +24,7 @@ tracks/0/keys = {
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 8
-frame = 6
+frame = 7
 
 [node name="AnimationPlayer" parent="." index="0"]
 anims/idle = SubResource( 1 )

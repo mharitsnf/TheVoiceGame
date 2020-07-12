@@ -3,11 +3,11 @@ extends Node
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	print(calculate_damage(200,10))
-	print(calculate_probability(0.4))
-	print(calculate_probability_battle(0.3,0.4,0.3))
-	print(calculate_probability_v2(6))
+#func _ready():
+#	print(calculate_damage(200,10))
+#	print(calculate_probability(0.4))
+#	print(calculate_probability_battle(0.3,0.4,0.3))
+#	print(calculate_probability_v2(6))
 
 # return damage calculation, Source: https://rpg.fandom.com/wiki/Damage_Formula
 func calculate_damage(attack: float, defence: float):

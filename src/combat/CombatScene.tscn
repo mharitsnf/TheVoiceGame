@@ -89,3 +89,4 @@ texture_hover = ExtResource( 9 )
 texture_disabled = ExtResource( 16 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+volume_db = -22.0

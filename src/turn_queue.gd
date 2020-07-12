@@ -6,7 +6,9 @@ signal end_combat
 
 var active_character: Battler
 var turn := 0
+
 onready var parent = get_parent()
+onready var win_dialogue = Global.parse_json_file("res://assets/texts/win_dialogues.json")
 
 func initialize():
 	active_character = get_child(0)
@@ -14,10 +16,10 @@ func initialize():
 
 func play_turn():
 	if active_character.role == Battler.roles.PLAYER and turn != 0:
-		Global.dialogue_box.show_comment(['Come on, do something...'], true)
+		Global.dialogue_box.show_comment([{"name": "Voice", "text": "Let's see what should you do..."}], true)
 		yield(Global.dialogue_box, "comment_done")
 	elif active_character.role == Battler.roles.ENEMY:
-		Global.dialogue_box.show_comment(["Enemy's turn..."], true)
+		Global.dialogue_box.show_comment([{"name": "Voice", "text": "Okay let's wait..."}], true)
 		yield(Global.dialogue_box, "comment_done")
 		
 	if active_character.role == Battler.roles.PLAYER:
@@ -38,10 +40,13 @@ func next_turn():
 	
 func combat_finished():
 	if active_character.role == Battler.roles.ENEMY:
-		Global.dialogue_box.show_comment(["You deed!", "Try again sometimes babay"], true)
+		Global.dialogue_box.show_comment([{"name": "Voice", "text": "Haha nooob!!"}], true)
 		yield(Global.dialogue_box, "comment_done")
 	else:
-		Global.dialogue_box.show_comment(["Yo win bro"], true)
+		Global.dialogue_box.show_comment(
+			win_dialogue[randi()%win_dialogue.size()], 
+			true
+		)
 		yield(Global.dialogue_box, "comment_done")
 		
 	parent.clear_globals()

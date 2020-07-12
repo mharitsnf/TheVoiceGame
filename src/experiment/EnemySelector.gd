@@ -8,7 +8,6 @@ func _ready():
 	$VBoxContainer/HBoxContainer/Button3.connect("button_up", self, '_on_button_up', [$VBoxContainer/HBoxContainer/Button3.name])
 
 func _on_button_up(btn_name):
-	var enemy1_combat_scene = combat_scene.instance()
 	match btn_name:
 		'Button':
 			SceneSwitcher.change_scene("res://src/combat/CombatScene.tscn", {'enemy_no': 1})
