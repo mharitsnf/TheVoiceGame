@@ -1,0 +1,9 @@
+[
+    {"name": "Bob", "text": "Whoo, that's what I call a fight!"},
+    {"name": "Voice", "text": "Yeah, that was awesome! If only you are always that cool"},
+    {"name": "Bob", "text": "Hey!"},
+    {"name": "Voice", "text": "Just kidding, let's pick some supplies for the final battle"},
+    {"name": "Bob", "text": "Final battle already?"},
+    {"name": "Voice", "text": "Yeah, the devs don't have time to make a full-length game for now"},
+    {"name": "Bob", "text": "Aaahh okay okay, let's go then"}
+]

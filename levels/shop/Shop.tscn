@@ -302,12 +302,13 @@ __meta__ = {
 [node name="Candle" type="AnimatedSprite" parent="."]
 position = Vector2( 160, 160 )
 frames = SubResource( 5 )
+frame = 3
 playing = true
 
 [node name="Candle2" type="AnimatedSprite" parent="."]
 position = Vector2( 1040, 160 )
 frames = SubResource( 5 )
-frame = 3
+frame = 2
 playing = true
 flip_h = true
 
@@ -331,6 +332,7 @@ anims/fade_out = SubResource( 11 )
 
 [node name="Score" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -25.0
 autoplay = true
 [connection signal="pressed" from="Button1" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

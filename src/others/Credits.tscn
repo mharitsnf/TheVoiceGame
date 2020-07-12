@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/font/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/others/credits.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "roll"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 16, 816 ), Vector2( 16, -1160 ) ]
+}
+
+[node name="Credits" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Credits" type="RichTextLabel" parent="."]
+margin_left = 16.0
+margin_top = 816.0
+margin_right = 1184.0
+margin_bottom = 2440.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "CREDITS
+
+
+Game Designer
+Fandika Okdiba
+Farhan Fauzan J
+Harits
+Raveno Raka
+
+Programmer
+Fandika Okdiba
+Harits
+
+Art by:
+Farhan Fauzan J
+Harits
+Raveno Raka
+
+Script
+Raveno Raka
+
+Music and SFX
+Raveno Raka
+
+Thanks to
+Our parents
+Godot Engine
+Aseprite
+Bfxr
+Discord
+Bob
+
+
+Special thanks
+YOU
+"
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/roll = SubResource( 2 )
